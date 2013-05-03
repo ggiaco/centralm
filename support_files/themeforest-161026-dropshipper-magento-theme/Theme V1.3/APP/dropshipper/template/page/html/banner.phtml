@@ -1,0 +1,35 @@
+<?php $home = new Mage_Page_Block_Html_Header();
+	  if ($home->getIsHomePage()):
+?>
+<div id="banner">
+<?php 
+$images = Mage::getStoreConfig('dropshipper_options/slider_image');	
+$links  = Mage::getStoreConfig('dropshipper_options/slides_link');		
+$width = Mage::getStoreConfig('dropshipper_options/featured_options/slideshow_width');
+$height = Mage::getStoreConfig('dropshipper_options/featured_options/slideshow_height');
+$mediaUrl = Mage::getBaseUrl('media') . "images/";
+echo "<ul class=\"bannerWrapper\">";
+$i=1;	
+foreach($images as $image): 
+$pos=$i++;	
+$url = $links["slider_link{$pos}"];
+$alt = $links["alt_link{$pos}"];
+$checkFeatured = Mage::getStoreConfig('dropshipper_options/featured_options/featured'); 
+?>	
+<?php if(!empty($image)): ?>
+	<li class="<?php echo "banner{$pos}"; if($pos==1){echo " first";} ?>"><a href="<?php echo $url ?>" title="<?php echo $alt ?>"><img src="<?php echo $mediaUrl . $image ?>" width="<?php if($checkFeatured==2 && !empty($width)){	echo $width;}else{echo 490;} ?>" height="<?php if($checkFeatured==2 && !empty($height)){echo $height;}else{echo 230;} ?>" alt="<?php echo $alt ?>" /></a></li>      
+<?php endif; endforeach; echo "</ul>"; ?>
+<?php 	
+echo "<ul class=\"bannerNav\">";
+for ($i = 1; $i <=$pos; $i++) {
+	$url = $links["slider_link{$i}"];
+	if($i==1){
+		echo "<li class=\"banner{$i}\">" . "<a href=\"$url\" class=\"active\">" . $i . "</a></li>" ;
+	}else{
+		echo "<li class=\"banner{$i}\">" . "<a href=\"$url\">" . $i . "</a></li>" ;
+	}
+}
+echo "</ul>";	
+?>  
+</div>
+<?php endif; ?>

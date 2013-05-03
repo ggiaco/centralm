@@ -1,0 +1,88 @@
+<?php 
+	  $logoArr = Mage::getStoreConfig('dropshipper_options/style');
+	  $mediaUrl = Mage::getBaseUrl('media') . 'images/';	
+?>
+	<!-- Cart & language switcher -->
+    <div class="top">
+        <div class="topCart">
+            <p class="cartHead"><?php echo $this->__('Your cart:') ?>
+            <?php
+			   $items = $this->helper('checkout/cart')->getSummaryCount();
+			   $total = $this->helper('checkout/cart')->getQuote()->getGrandTotal();
+				if($items==0){
+					echo $this->__('<strong>0</strong> Item',$items);							
+				}elseif($items==1){
+					echo $this->__('<strong>1</strong> Item',$items);	
+				}else{
+					echo $this->__('<strong>%s</strong> Items',$items);	
+				}
+				echo $this->__(' | Total: <strong>%s</strong>', $this->helper('core')->formatPrice($total, false));
+			?>
+            </p>
+        </div>
+        <div class="select">
+        	<?php echo $this->getChildHtml('store_language') ?>       
+            <?php echo $this->getChildHtml('currency') ?>
+            <div class="clear"></div>    
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- Header Section -->
+    <div class="header">
+    	<!-- Logo -->
+        <?php if ($this->getIsHomePage()):?>
+            <h1><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $logoArr["logo_alt"] ?>"><img src="<?php echo $mediaUrl . $logoArr["logo_upload"] ?>" alt="<?php echo $logoArr["logo_alt"] ?>" width="149" height="38" /><span><?php echo $logoArr["logo_alt"]; ?></span></a></h1>
+            
+            <?php else:?>
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $logoArr["logo_alt"] ?></strong><img src="<?php echo $mediaUrl . $logoArr["logo_upload"] ?>" alt="<?php echo $logoArr["logo_alt"] ?>" /></a>
+            <?php endif?>    
+            <!-- Register/Login -->
+            <?php if(!$this->helper('customer')->isLoggedIn()): ?>
+            <div class="login">
+            	<?php $helper = Mage::helper("customer"); 
+					  $regUrl = $helper->getRegisterUrl();
+					  $logUrl = $helper->getLoginUrl();					  
+				?>
+				<a class="join" href="<?php echo $regUrl ?>"><?php echo $this->__('Join Free Now!') ?></a> 
+                <p><?php echo $this->__('Already a member?') ?> <a class="signin" href="<?php echo $logUrl ?>"><?php echo $this->__('Sign in') ?></a></p>
+            	            <?php echo $this->getChildHtml('mini_login') ?>
+
+            </div>
+            <?php endif; ?>
+            <!-- Welcome Message -->          
+            <p class="welcome-msg">           
+            	<?php 
+					if($this->helper('customer')->isLoggedIn()){
+						echo $this->getWelcome();
+					}else{
+						echo Mage::getStoreConfig('dropshipper_options/general_options/welcome_message');
+					}
+				?>
+            </p>            
+            <!-- Top Menu -->
+            <ul class="topMenu">    	
+                <li><a href="<?php echo $this->getUrl('') ?>" class="home"><?php echo $this->__('Home') ?></a></li>
+                <?php echo $this->getLayout()->getBlock('cms_pages')->toHtml()  ?>                  	
+            </ul>
+    <div class="clear"></div>
+    </div>	
+    <!-- Search Section -->
+    <div class="searchBox">
+    	<?php echo $this->getChildHtml('topSearch') ?>        
+		<?php $helper = Mage::helper("catalogsearch"); 
+			  $advancedUrl = $helper->getAdvancedSearchUrl();				
+		?>
+        <a href="<?php echo $advancedUrl; ?>" class="advanced"><?php echo $this->__('Advanced Search') ?></a>
+        <div class="clear"></div>
+	</div>
+	<!-- Categories & Quick Access Links -->
+    <div class="quick-access">
+    	<ul>
+        	<li class="topLi"><a href="javascript:void();" class="allCat"><?php echo $this->__('All Categories') ?></a>
+                <?php echo $this->getChildHtml('topMenu') ?>               	
+            </li>
+         </ul>   
+    <?php echo $this->getChildHtml('top.links') ?>   
+    <div class="clear"></div>    
+    </div>
+

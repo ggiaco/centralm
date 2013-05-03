@@ -1,0 +1,35 @@
+<?php $featuredBool = Mage::getStoreConfig('dropshipper_options/featured_options/featured'); 
+		if($featuredBool==1): ?>
+<?php $home = new Mage_Page_Block_Html_Header();
+	  if ($home->getIsHomePage()): ?> 
+<?php
+$collection = Mage::getModel('catalog/product')->getCollection();
+$collection->addAttributeToSelect('name')   
+		   ->addAttributeToSelect('small_image')  
+	       ->addAttributeToSelect('price')
+		   ->addFieldToFilter(array(
+				array('attribute' => 'featured', 'eq' => 1)));
+			$collection->getSelect()->order('entity_id desc');
+$currency = Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();
+$featuredHeading = Mage::getStoreConfig('dropshipper_options/featured_options/featured_heading');
+$collection->addAttributeToSelect('*');
+$i=1;
+foreach ($collection as $product):
+?>
+       <div class="featured">
+       		<h2><?php echo $featuredHeading ?></h2>
+       		<a href="<?php echo $product->getProductUrl(); ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(170,120)->constrainOnly(TRUE)->keepAspectRatio(FALSE)->keepFrame(FALSE); ?>" title="<?php echo $product->getName() ?>" width="170" height="120" alt="<?php echo $product->getName() ?>" /></a>
+            <h3><a href="<?php echo $product->getProductUrl(); ?>"><?php echo $product->getName() ?></a></h3>
+            <?php if($product->getSpecialPrice()==TRUE): ?>
+            <p class="old-price"><span class="price"><?php echo $currency . number_format($product->getPrice(),2) ?></span></p>
+            <p class="price"><?php echo $currency . number_format($product->getSpecialPrice(),2) ?></p>
+            <?php else: ?>
+             <p class="price"><?php echo $currency . number_format($product->getPrice(),2) ?></p>
+            <?php endif; ?>
+            
+             <?php if(($product->getSpecialPrice() != null)): ?>
+                	<p class="promo">Promo!</p>
+			<?php endif; ?> 
+       </div>	
+<?php if($i<=1){break;}endforeach; endif; ?>
+<?php endif;?>

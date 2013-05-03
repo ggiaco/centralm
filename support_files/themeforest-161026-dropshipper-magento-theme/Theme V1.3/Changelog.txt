@@ -1,0 +1,25 @@
+For V1.2
+
+Added Lightbox functionality on product page.
+
+Modified files:
+1. custom.js
+2. Media.phtml
+3. catalog.xml
+
+Added files and folders:
+1. Images folder for Fancybox
+2. fancybox.css
+3. fancybox.js
+
+
+----
+
+For V1.1
+
+Pages.phtml has been modified.
+
+The file can be found at app/design/frontend/default/dropshipper/template/page/html/
+
+
+----

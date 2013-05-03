@@ -1,0 +1,28 @@
+<div class="footer">
+  <div class="textBox">  		
+  		<?php $footerText = Mage::getStoreConfig('dropshipper_options/general_options/footer_text'); 
+			   if(!empty($footerText)){
+			   		echo $footerText;
+			   }else{
+			   		echo "Footer Text Not Set!";
+			   }
+		?>
+  </div>
+      <div class="footerBlock">
+        <h4><?php echo $this->__('Useful Links') ?></h4>
+        <?php echo $this->getChildHtml('footer_links') ?>
+      </div>
+      <div class="footerBlock">
+        <h4><?php echo $this->__('My Account') ?></h4>
+        <?php echo $this->getLayout()->getBlock('top.links')->toHtml()  ?>   
+      </div>
+      <div class="footerBlock last">
+        <h4><?php echo $this->__('Pages') ?></h4>
+        <ul class="links">
+        	<?php echo $this->getLayout()->getBlock('cms_pages')->toHtml()  ?>			
+      	</ul>
+      </div>
+  <div class="clear"></div>
+</div>
+ <p class="credits"><?php echo Mage::getStoreConfig('dropshipper_options/general_options/footer_credits'); ?></p>
+ 

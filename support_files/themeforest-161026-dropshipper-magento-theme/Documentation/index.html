@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Template Documentation Template</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+		code{border:1px solid #ccc; padding:5px 10px;display:block;}
+		code pre{margin:0;}
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Dropshipper Magento Theme&rdquo; Documentation by &ldquo;Ravi G&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Dropshipper Magento Theme&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 12/02/2011<br>
+					By: Ravi G<br>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/raviG">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->		
+	  <hr>		
+    <h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#upload">Uploading & Installing the theme</a>
+            	<ul>
+                	<li><a href="#module">Uploading the module</a></li>
+                    <li><a href="#error">Magento Error</a></li>
+                </ul>
+          </li>		
+          <li><a href="#config">Theme Configuration</a>
+            <ul>
+                <li><a href="#home">Setup the homepage</a></li>
+                <li><a href="#logo">Logo,styles & Favicon</a></li>
+                <li><a href="#banner">Uploading Banner Images</a></li>
+                <li><a href="#featured">Featured Products</a></li>
+                <li><a href="#latest">Latest Products</a></li>
+                <li><a href="#exclude">Excluding Categories from Search</a></li>
+                <li><a href="#callout">Callout Images</a></li>
+                <li><a href="#footer">Footer Text & Credits</a></li>
+            </ul>
+          </li>	
+          <li><a href="#languages">Languages</a></li>
+          <li><a href="#credits">Credits</a></li>
+    </ol>
+		
+		<hr>		
+		<h3 id="upload"><strong>A)(i) Uploading and installing the theme</strong> - <a href="#toc">top</a></h3>
+		<p>Open the Folder named "Theme". There are two folders that you need to upload in order to install the theme. One is in the SKIN folder and the other one in the APP folder. Both folders contain a folder named "dropshipper".</p>
+        <ol>
+        	<li>Upload the folder &quot;dropshipper&quot; from the folder APP to your magento folder  in <strong>app/ design/frontend/default/</strong></li>
+            <li>Upload the one in the SKIN folder to your magento folder  in <strong>skin/frontend/default/</strong></li>
+        </ol>
+        <p>Go to admin &raquo; system &raquo; design. Click on <strong>"ADD DESIGN CHANGE"</strong> and select <strong>&quot;dropshipper&quot;</strong> for the custom design and click save.</p>  
+        <hr>
+        
+      <h3 id="module"><strong>A)(ii) Uploading the Module</strong> - <a href="#toc">top</a></h3>
+        <p>Make sure Magento Cache is <strong>disabled</strong>.</p>
+		<p>Open the folder named <strong>"Module"</strong> from the <strong>"theme"</strong> folder.</p>
+        <ol>
+        	<li>Upload the folder<strong> &quot;Webizmu&quot;</strong> to <strong>magento/app/code/local/</strong></li>
+            <li>Upload the file <strong>"Webizmu_Dropshipper.xml"</strong> to <strong>magento/app/etc/modules/</strong></li>
+        </ol>
+        <p>When you first install the module you will have to logout from admin and log back in. Go to system &raquo; configuration and you should see the module on top. See picture below:</p>  
+   	  <img src="assets/images/module.jpg" width="345" height="316" alt="featured" />
+        <hr>
+       
+       	<h3 id="error"><strong>A)(iii) Magento Error</strong> - <a href="#toc">top</a></h3>
+        <p>If you refresh the homepage, Magento will throw an error if an attribute named "featured" has not been created. Follow the steps below to create the new attribute and add it to the default attribute set.</p>
+        <p>The steps consist of creating an attribute called Featured and adding it to the default attribute set.</p>
+         <ol>
+         	<li>Go to admin &raquo; catalog &raquo; attributes &raquo; manage attributes</li>
+            <li>Click Add new attribute</li>
+            <li>Fill the text boxes like below:
+            	<ul>
+                	<li>Attribute code: featured</li>
+                    <li>Scope : Store View</li>
+                    <li>Catalog Input Type for Store Owner: YES/NO</li>
+                    <li>Apply To: All product types</li>
+                    <li>Use In Layered Navigation: No</li>
+                    <li>Use In Search Results Layered Navigation: No</li>
+                    <li>Visible on Product View Page on Front-end: No</li>
+                    <li>Used in Product Listing: No</li>
+                    <li>Used for Sorting in Product Listing: No</li>               
+	            </ul>
+            </li>
+            <li>Save the attribute and Go to catalog->attributes->manage attributes sets</li>
+            <li>Click on Default and drag the featured attribute from the "Unassigned Attributes" under General. See picture below.
+            	<img src="assets/images/featured.jpg" width="345" height="336" alt="featured" />
+            </li>
+            <li>Save Attribute set and add a new product. You should see a dropdown with YES/No.
+		    Selecting YES will show the product as featured on its category page.</li>
+         </ol>        
+         <p>Refresh the Homepage and the error is gone!</p>
+        <hr>
+      <h3 id="config"><strong>B) Theme Configuration</strong> - <a href="#toc">top</a></h3>
+		<p>The theme's configuration are done from the admin panel in the "Dropshipper Module".</p>
+			<ol>
+            	<li>Go to admin &raquo; system &raquo; configuration and you should see all the options.</li>
+            </ol>
+      <img src="assets/images/module.jpg"  width="794" height="316" />
+        <hr>
+       
+        <h3 id="home"><strong>B)(ii) Setup the Homepage</strong> - <a href="#toc">top</a></h3>
+		<p>The homepage uses the 2columns-left layout.</p>
+        	<ol>
+            	<li>Go to admin &raquo; cms &raquo; pages.</li>
+                <li>Click the design tab and change the page layout to <strong>"2 Columns with left bar"</strong>.</li>
+            </ol>
+        <hr>
+
+        
+         <h3 id="logo"><strong>B)(iii) Logo,styles & Favicon</strong> - <a href="#toc">top</a></h3>
+		<p>Uploading your logo, changing the Theme color and uploading your Favicon is super easy.</p>
+        <p>Just go to admin &raquo; system &raquo; configuration and click the <strong>"Logo, Style & Favicon"</strong> tab and add your content.</p>
+        <p>Hit <strong>"Save Config"</strong> when you are done.</p>
+      <img src="assets/images/logo.jpg" width="794" height="315" />
+        <hr>
+
+      <h3 id="banner"><strong>B)(iv) Uploading Banner Images</strong> - <a href="#toc">top</a></h3>
+       <img src="assets/images/bh.jpg" width="794" height="315" />
+		<p>The banner area is configured from the Dropshipper Module in the admin section.</p>
+        	<ol>
+            	<li>Go to admin &raquo; system &raquo; configuration</li>
+                <li>Click the <strong>"Homepage Slideshow"</strong> tab and upload your images.</li>
+            </ol>
+      <img src="assets/images/banner.jpg" width="794" height="316" />
+            <p>To add alt text and image link for each uploaded image click <strong>"Homepage Slideshow Configuration"</strong>. After that hit Save and refresh the homepage. You should see the images.</p>
+            <img src="assets/images/banner2.jpg" width="794" height="316" />
+        <hr>
+      <h3 id="featured"><strong>B)(v) Featured Products</strong> - <a href="#toc">top</a></h3>
+		<p>To get "Featured" products to display on the Homepage and Category pages, all you have to do is to select <strong>"YES"</strong> next to the &quot;Featured&quot; label when editing or creating new products.</p>
+        <img src="assets/images/yes.jpg" width="794" height="315" />
+        <p>You can enable and disable the featured products from the <strong>"Dropshipper Module"</strong> section</p>
+        <p>To disable the Featured products just hit <strong>"Featured Product Options"</strong>. When you disable you will get fields to adjust the homepage slideshow width and height.</p>
+   	  <img src="assets/images/fea.jpg" width="794" height="315" /> 
+        <hr>
+        
+         <h3 id="latest"><strong>B)(vi) Latest Products</strong> - <a href="#toc">top</a></h3>
+		<p>The latest products will display automatically on the homepage. The products are sorted by latest first. No need to add "new to date". Just add your product information and hit save.</p>
+        <p>The configuration for the Heading and Number of latest products to display is done from the "Dropshipper Module" at the <strong>"General Theme Options"</strong> tab. See picture below:</p>
+   	  <img src="assets/images/latest.jpg" width="794" height="315" /> 
+        <hr>
+        
+      <h3 id="exclude"><strong>B)(vii) Excluding categories from search</strong> - <a href="#toc">top</a></h3>		
+        <p>Excluding categories is done from the <strong>"Dropshipper Module"</strong> at the <strong>"General Theme Options"</strong> tab. Just add the category IDs separated by comma. See picture below:</p>
+   	  <img src="assets/images/exclude.jpg" width="794" height="315" /> 
+        <hr>
+        
+         <h3 id="callout"><strong>B)(viii) Callout Images</strong> - <a href="#toc">top</a></h3>
+        <img src="assets/images/leftC.jpg" width="794" height="315" />  		
+        <p>The theme consists of two callout images that are controlled from the <strong>"Dropshipper Module"</strong>. The tabs are <strong>"Right Callout Image"</strong> and <strong>"Left Callout Image"</strong></p>
+        <p>You can upload your image, add the description and add the image link.</p>
+        
+   	  <img src="assets/images/callout.jpg" width="794" height="315" /> 
+        <hr>
+        
+         <h3 id="footer"><strong>B)(ix) Footer Text & Credits</strong> - <a href="#toc">top</a></h3>	
+         <img src="assets/images/ft.jpg" width="794" height="315" /> 	
+        <p>The Footer text & Footer Credits are controlled from the <strong>"Dropshipper Module"</strong> under the <strong>"General Theme Options"</strong> tab</strong></p>
+        <p>Html tags are allowed. See picture below:</p>        
+   	  <img src="assets/images/footer.jpg" width="794" height="315" /> 
+        <hr>
+        
+         <h3 id="languages"><strong>C) Languages</strong> - <a href="#toc">top</a></h3>	
+        <p>I have added the file "Mage_page.csv" for French language in the folder "French".</p>
+        <p>Download the french language pack from <a href="http://www.magentocommerce.com/magento-connect/SeL/extension/414/magento-community-modules--french-france-language-pack">Magento Connect</a> and replace the file "Mage_page.csv" with the one found in the folder <strong>"French"</strong>.</p>
+		<p>For other languages you can grab them from <strong>Magento Connect</strong>, replace the "Mage_page.csv" with the one in the French folder and edit the french wordings to your language.</p>
+        <hr>
+        
+         <h3 id="credits"><strong>C) Credits</strong> - <a href="#toc">top</a></h3>	
+        <p>jQuery - <a href="http://jquery.com/">http://jquery.com/</a>.</p>        
+        <hr>
+        
+  <p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>Ravi G</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

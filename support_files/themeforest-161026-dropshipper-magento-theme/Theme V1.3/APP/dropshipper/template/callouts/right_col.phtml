@@ -1,0 +1,12 @@
+<?php
+	$mediaUrl = Mage::getBaseUrl('media') . "images/";
+	$callout = Mage::getStoreConfig('dropshipper_options/callout_right');
+?>	
+<?php if(!empty($callout)): ?>
+	<div class="callout">
+    	<a href="<?php echo $callout["img_right_link"]; ?>">
+		<img src="<?php echo $mediaUrl . $callout["img_right_upload"]; ?>" 
+        	 alt="<?php echo $callout["img_right_link"]; ?>" width="175" />
+        </a>
+    </div>
+<?php endif; ?>

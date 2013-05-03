@@ -1,0 +1,40 @@
+<?php 
+$category = Mage::getModel('catalog/category');
+	if(is_object(Mage::registry('current_category'))){
+		$current_category_path=Mage::registry('current_category')->getPathIds();
+	}else{
+		$current_category_path = array();
+	}
+$category->load(Mage::app()->getStore()->getRootCategoryId());
+$children_string = $category->getChildren();
+$children = explode(',',$children_string);
+$mainCat='';
+$catID = Mage::getStoreConfig('dropshipper_options/general_options/exclude_cat');
+$excludeCat = explode(',',$catID);
+	foreach($children as $cat){
+		if(in_array($cat, $excludeCat)){
+			continue;
+		}
+	$selected = (in_array($cat, $current_category_path))?'SELECTED':'';
+	$mainCat.= '<option value="' . $cat . '" ' . $selected . '>' . $category->load($cat)->getName() . '</option>' . "\n";
+}
+?>
+<form id="search_footer" action="<?php echo $this->helper('catalogSearch')->getResultUrl() ?>" method="get"> 
+	<div>   
+    <input id="searchFooter" type="text" class="input-text" name="<?php echo $this->helper('catalogSearch')->getQueryParamName() ?>" value="<?php echo $this->helper('catalogSearch')->getEscapedQueryText() ?>" />
+     <span><?php echo $this->__('within') ?></span>
+     <div class="selectTag">
+        <select name="cat" id="fCat" class="input-text">
+            <option value="">-- <?php echo $this->__('All Categories') ?> --</option>
+            <?php echo preg_replace('/&(?![A-Za-z0-9#]{1,7};)/','&amp;',$mainCat); ?>
+        </select>
+    </div>
+    <input type="submit" value="Search" class="go" /></div>
+    <div id="Fsearch_autocomplete" class="search-autocomplete"></div>
+    <script type="text/javascript">
+       //<![CDATA[	   
+       var searchForm = new Varien.searchForm('search_footer', 'searchFooter', '<?php echo $this->__('Search the site...') ?>');
+      searchForm.initAutocomplete('<?php echo $this->helper('catalogSearch')->getSuggestUrl() ?>', 'Fsearch_autocomplete');
+      //]]>
+    </script>
+</form>

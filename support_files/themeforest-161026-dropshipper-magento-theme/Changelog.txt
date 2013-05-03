@@ -1,0 +1,8 @@
+**V1.3 Fixed bug on tags page.**
+
+Files altered:
+
+list.phml at catalog/product
+toolbar.phtml at catalog/product/list
+styles.css
+
