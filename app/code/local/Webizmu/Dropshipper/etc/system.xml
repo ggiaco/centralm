@@ -1,0 +1,464 @@
+<config>
+    <tabs>
+        <themeconfig translate="label" module="dropshipper">
+            <label>Dropshipper Theme</label>
+            <sort_order>1</sort_order>
+        </themeconfig>
+    </tabs> 	
+	<sections>
+        <dropshipper_options translate="label" module="dropshipper">
+            <label>Dropshipper Configuration</label>
+            <tab>themeconfig</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>  
+			<groups>
+				<style translate="label">
+					<label>Logo, Style &amp; Favicon</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>							
+							<!-- LOGO UPLOAD -->
+							<fields>
+								<logo_upload>						
+									<label>Upload your Logo</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG,GIF,PNG</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>
+									<sort_order>1</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 			   					          
+								</logo_upload>
+							</fields> 
+							<!-- Logo Alt -->
+							<fields>
+								<logo_alt>
+									<label>Alternate text for logo</label>
+									<frontend_type>text</frontend_type>								
+									<comment>Logo description</comment>
+									<sort_order>2</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>                    
+								</logo_alt>
+							</fields>				
+							<!-- CHOOSE STYLESHEET -->
+							<fields>
+								<select_style>
+									<label>Choose your style</label>
+									<frontend_type>select</frontend_type>
+									<comment>Default is Red.</comment>
+									<source_model>dropshipper/styles</source_model>         
+									<sort_order>3</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>                    
+								</select_style>
+							</fields>	  		
+							<!-- Upload Favicon -->
+							<fields>
+								<favicon>
+										<label>Upload Favicon</label>
+										<frontend_type>image</frontend_type>
+										<comment>JPG,GIF,PNG</comment>
+										<backend_model>adminhtml/system_config_backend_image</backend_model>
+										<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+										<base_url type="media" scope_info="1">images</base_url>
+										<sort_order>4</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store> 	               
+								</favicon>
+							</fields>	  			
+				</style>
+				<!-- SLIDER IMAGE UPLOADE STARTS -->
+				<slider_image translate="label">
+					<label>Homepage Slideshow</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>    
+						<fields>
+						<!-- First Slider Image -->
+							<image_upload1>						
+									<label>Upload First Image</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>
+									<sort_order>1</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 					   					          
+							</image_upload1>
+						</fields>
+						<!-- Upload Image 2 -->
+						<fields>
+							<image_upload2>						
+									<label>Upload Second Image</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>
+									<sort_order>3</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 					   					          
+							</image_upload2>
+						</fields>
+						<!-- Upload Image 3 -->
+						<fields>
+							<image_upload3>						
+									<label>Upload Third Image</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>
+									<sort_order>5</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 					   					          
+							</image_upload3>
+						</fields>						
+				</slider_image>
+				<!-- Slider Images Link & Alt -->
+				<slides_link translate="label">
+				<label>Homepage Slideshow Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>   
+					<!-- First Image Alt -->
+						<fields>
+							<alt_link1>
+								<label>Alternate text for First Image</label>
+								<frontend_type>text</frontend_type>								
+								<comment>Image Description</comment>
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                    
+							</alt_link1>
+					 	</fields>
+					<!-- First Image Link -->
+						<fields>
+							<slider_link1>
+								<label>Link for first image</label>
+								<frontend_type>text</frontend_type>								
+								<comment>e.g: http://yourstore.com/yourLink</comment>
+								<sort_order>2</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                    
+							</slider_link1>
+					 	</fields>											
+						<!-- Second Image Alt -->
+						<fields>
+							<alt_link2>
+								<label>Alternate text for Second Image</label>
+								<frontend_type>text</frontend_type>								
+								<comment>Image Description</comment>
+								<sort_order>3</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                    
+							</alt_link2>
+					 	</fields>						
+						<!-- Second Image Link -->
+						<fields>
+							<slider_link2>
+								<label>Link for Second image</label>
+								<frontend_type>text</frontend_type>								
+								<comment>e.g: http://yourstore.com/yourLink</comment>
+								<sort_order>4</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                    
+							</slider_link2>
+					 	</fields>			
+						<!-- Third Image Alt -->
+						<fields>
+							<alt_link3>
+								<label>Alternate text for Third Image</label>
+								<frontend_type>text</frontend_type>								
+								<comment>Image Description</comment>
+								<sort_order>5</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                    
+							</alt_link3>
+					 	</fields>		
+						<!-- Third Image Link -->
+						<fields>
+							<slider_link3>
+								<label>Third Image Link</label>
+								<frontend_type>text</frontend_type>								
+								<comment>e.g: http://yourstore.com/yourLink</comment>
+								<sort_order>6</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                    
+							</slider_link3>
+					 	</fields>						
+				</slides_link>
+					<!-- Featured Products -->
+					<featured_options translate="label">
+						<label>Featured Product Options</label>
+						<frontend_type>text</frontend_type>
+						<sort_order>4</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store> 					
+					<fields>
+						<featured translate="label">
+							<label>Enable Featured Products</label>
+							<frontend_type>select</frontend_type>
+							<comment>Default is Yes. Selecting No will display fields below to adjust the slideshow's width and height on the homepage.</comment>					
+							<source_model>dropshipper/featured</source_model>    		
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>		            
+					   </featured>
+					</fields>
+					<!-- Featured products heading -->
+					<fields>
+						<featured_heading>
+							<label>Featured Products Heading</label>
+							<frontend_type>text</frontend_type>		
+							<comment>Add the text for the heading.</comment>				
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store> 
+							<depends><featured>1</featured></depends>                      
+						</featured_heading>
+					</fields>		
+					<!-- Number of featured products in category pages -->					
+					<fields>						
+						<featured_num>							
+								<label>Number of Featured Products to display in category pages</label>
+								<frontend_type>text</frontend_type>
+								<comment>Default is 1.</comment>							
+								<sort_order>3</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>  
+							    <depends><featured>1</featured></depends>      
+						</featured_num>						   
+					</fields>	
+					<!-- Slideshow Width -->					
+					<fields>						
+						<slideshow_width>							
+								<label>Slideshow Width</label>
+								<frontend_type>text</frontend_type>
+								<comment>Unless you have modified the theme, the Maximum width is 710px.</comment>							
+								<sort_order>4</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>  
+							    <depends><featured>2</featured></depends>      
+						</slideshow_width>						   
+					</fields>	
+					<!-- Slideshow Width -->					
+					<fields>						
+						<slideshow_height>							
+								<label>Slideshow Height</label>
+								<frontend_type>text</frontend_type>
+								<comment>No restrictions on the height here.</comment>							
+								<sort_order>5</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>  
+							    <depends><featured>2</featured></depends>      
+						</slideshow_height>						   
+					</fields>	
+				</featured_options>
+				<!-- General Theme Options Starts -->
+					<general_options translate="label">
+						<label>General Theme Options</label>
+						<frontend_type>text</frontend_type>
+						<sort_order>7</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>   						
+						<!-- The Welcome Message -->
+						<fields>
+							<welcome_message>
+								<label>Welcome Message</label>
+								<frontend_type>text</frontend_type>
+								<comment>This is the default welcome message</comment>
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                    
+							</welcome_message>
+					 </fields>
+					 <!-- Exclude Categories -->
+					 <fields>
+						<exclude_cat>
+							<label>Exclude Categories from search</label>
+							<frontend_type>text</frontend_type>
+							<comment>Enter category Id. (e.g: 5, 6, 15)</comment>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>  							           
+						</exclude_cat>
+					</fields>		
+					 <!-- Latest products heading -->
+					<fields>
+						<latest_heading>
+							<label>Latest Products Heading</label>
+							<frontend_type>text</frontend_type>
+							<comment>Add the text for the heading.</comment>						
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>                    
+						</latest_heading>
+					</fields>		
+					 <!-- Number of latest products -->
+						<fields>
+						<latest_num>
+							<label>Number of Latest Products to display on the homepage</label>
+							<frontend_type>text</frontend_type>
+							<comment>Default is 4.</comment>							
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>                    
+						</latest_num>
+					</fields>
+					<!-- Footer Text -->
+					<fields>
+						<footer_text>
+							<label>Footer Text Block</label>
+							<frontend_type>textarea</frontend_type>
+							<comment>HTML tags are allowed. (img, p, a, div)</comment>							
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>                    
+						</footer_text>
+					</fields>		
+					<!-- Footer Credits -->
+					<fields>
+						<footer_credits>
+							<label>Footer credits</label>
+							<frontend_type>text</frontend_type>						
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>                    
+						</footer_credits>
+					</fields>
+					</general_options>	
+					<!-- Callout Images -->
+					<callout translate="label">
+					<label>Left Callout Image</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>   
+					<!-- First Image Alt -->
+						<fields>
+							<img_left_upload>						
+								<label>Upload your image</label>
+								<frontend_type>image</frontend_type>
+								<comment>JPG,GIF,PNG</comment>
+								<backend_model>adminhtml/system_config_backend_image</backend_model>
+								<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+								<base_url type="media" scope_info="1">images</base_url>
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store> 			   					          
+							</img_left_upload>
+						</fields> 
+						<fields>
+							<img_left_alt>
+								<label>Alternate text for image</label>
+								<frontend_type>text</frontend_type>								
+								<comment>Image Description</comment>
+								<sort_order>2</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                    
+							</img_left_alt>
+					 	</fields>
+						<fields>
+							<img_left_link>
+								<label>Callout image link</label>
+								<frontend_type>text</frontend_type>								
+								<comment>Image link</comment>
+								<sort_order>3</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                    
+							</img_left_link>
+					 	</fields>
+					</callout>		
+						
+					<callout_right translate="label">
+					<label>Right Callout Image</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>6</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>   
+					<!-- First Image Alt -->
+						<fields>
+							<img_right_upload>						
+								<label>Upload your image</label>
+								<frontend_type>image</frontend_type>
+								<comment>JPG,GIF,PNG</comment>
+								<backend_model>adminhtml/system_config_backend_image</backend_model>
+								<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+								<base_url type="media" scope_info="1">images</base_url>
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store> 			   					          
+							</img_right_upload>
+						</fields> 
+						<fields>
+							<img_right_alt>
+								<label>Alternate text for image</label>
+								<frontend_type>text</frontend_type>								
+								<comment>Image Description</comment>
+								<sort_order>2</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                    
+							</img_right_alt>
+					 	</fields>
+						<fields>
+							<img_right_link>
+								<label>Callout image link</label>
+								<frontend_type>text</frontend_type>								
+								<comment>Image link</comment>
+								<sort_order>3</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                    
+							</img_right_link>
+					 	</fields>
+					</callout_right>					
+				</groups>                  
+        </dropshipper_options>
+    </sections>     
+</config>

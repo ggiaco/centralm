@@ -1,0 +1,40 @@
+<config>    
+    <modules>
+        <Webizmu_Dropshipper>
+            <version>1.0</version>
+        </Webizmu_Dropshipper>
+    </modules>			
+	<global>			
+		<helpers>
+			<dropshipper>
+				<class>Webizmu_Dropshipper_Helper</class>
+			</dropshipper>
+		</helpers>
+		  <models>
+			<dropshipper>
+				<class>Webizmu_Dropshipper_Model</class>
+			</dropshipper>   
+  		  </models>
+	</global>
+	<adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <dropshipper_options>
+                                            <title>Dropshipper Module</title>
+                                        </dropshipper_options>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>  
