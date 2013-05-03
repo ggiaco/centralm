@@ -1,0 +1,50 @@
+<title><?php echo $this->getTitle() ?></title>
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<?php 
+	   $favicon = Mage::getStoreConfig('dropshipper_options/style/favicon');
+	   $mediaUrl = Mage::getBaseUrl('media') . 'images/';	 
+?>
+<?php if(empty($favicon)): ?>
+    <link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<?php else: ?>
+    <link rel="icon" href="<?php echo $mediaUrl . $favicon; ?>" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo $mediaUrl . $favicon; ?>" type="image/x-icon" />
+<?php endif; ?>
+<?php 
+	$skin1 = $this->getSkinUrl() . "css/red.css"; 
+	$skin2 = $this->getSkinUrl() . "css/blue.css";
+?>
+<?php  $style = 1; 
+	   $style = Mage::getStoreConfig('dropshipper_options/style/select_style');
+	   if($style==1): ?>
+	  		<link type="text/css" rel="stylesheet" href="<?php echo $skin1; ?>" />
+		<?php else: ?>
+             <link type="text/css" rel="stylesheet" href="<?php echo $skin2; ?>" />
+        <?php endif; ?>
+
+<?php 
+	 $checkFeatured = Mage::getStoreConfig('dropshipper_options/featured_options/featured'); 
+	 $width = Mage::getStoreConfig('dropshipper_options/featured_options/slideshow_width');
+	 $height = Mage::getStoreConfig('dropshipper_options/featured_options/slideshow_height');
+?>	 	
+	<?php if($checkFeatured==2 && !empty($width)): ?>
+       <style type="text/css">
+            .col-main #banner{width:<?php echo $width ?>;height:<?php echo $height; ?>;}
+            .col-main #banner ul{height:<?php echo $height; ?>}
+       </style>
+    <?php endif; ?>
+    
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	 var $j = jQuery.noConflict();
+//]]>
+</script>
+<?php echo $this->getCssJsHtml() ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>

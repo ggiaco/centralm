@@ -1,0 +1,13 @@
+<?php if($this->getCollection()->getSize()): ?>
+<div class="toolbar">
+    <div class="pager">
+        <p class="amount">
+            <strong><?php echo Mage::registry('current_category')->getName(); ?></strong> - <?php if($this->getLastPageNum()>1): ?>
+               <small><?php echo $this->__('Items %s to %s of %s total', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?></small>
+            <?php else: ?>
+                <small><?php echo $this->__('%s Item(s)', $this->getTotalNum()) ?></small>
+            <?php endif; ?>            
+        </p>
+   <?php echo $this->getPagerHtml() ?>
+
+<?php endif;?>

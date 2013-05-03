@@ -1,0 +1,23 @@
+<?php $_product = $this->getProduct() ?>
+<div class="addtoWrapper">
+<div class="share">
+	<p><strong>Share:</strong></p>
+    <ul>
+       <?php if ($this->canEmailToFriend()): ?>
+            <li class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></li>
+       <?php endif; ?>
+            <li><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like layout="button_count" show_faces="false" width="450"></fb:like></li>
+            <li><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+    </ul>
+</div>
+
+<ul class="add-to-links">
+<?php if ($this->helper('wishlist')->isAllow()) : ?>
+    <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+<?php endif; ?>
+<?php if($_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product) ): ?>
+    <li><a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+<?php endif; ?>	
+</ul>
+<div class="clear"></div>
+</div>

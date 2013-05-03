@@ -1,0 +1,17 @@
+<?php if ($this->getReviewsCount()): ?>
+    <div class="ratings">    	
+	<?php if($this->getRequest()->getControllerName()=='product'):?>
+            <span><?php echo $this->__('Reviews:') ?></span>
+    <?php endif; ?>
+        <?php if ($this->getRatingSummary()):?>        	
+            <div class="rating-box">            
+                <div class="rating" style="width:<?php echo $this->getRatingSummary() ?>%"></div>
+            </div>
+        <?php endif;?>
+        <p class="rating-links">
+            <?php echo $this->__('(%d)', $this->getReviewsCount()) ?>         
+        </p>
+    </div>
+<?php elseif ($this->getDisplayIfEmpty()): ?>
+    <p class="no-rating"><a href="#reviewForm" class="reviewForm"><?php echo $this->__('Be the first to review this product') ?></a></p>
+<?php endif; ?>

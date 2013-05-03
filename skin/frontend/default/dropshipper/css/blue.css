@@ -1,0 +1,13 @@
+.topCart strong,.header .login a.join,.login a.signin,.pager p.amount strong,h2.featuredH em,.featured h2,.latest h2,h2.featuredH,.catalog-category-view .pager p.amount,.page-title,.catalog-product-view .product-view .tier-prices strong.benefit{color:#1B4A8E;}
+.searchBox{background:#1B4182 url(../images/searchBg-blue.jpg) repeat-x top;}
+input#search,input#searchFooter{border:1px solid #173973;}
+#search_form .selectTag,#search_footer .selectTag{border:1px solid #173973}
+input.go{background:url(../images/go-blue.jpg) no-repeat;}
+input.go:hover{background-position:-41px 0;}
+a.advanced{color:#4F93FF;}
+.quick-access a.allCat{background:url(../images/allCat-blue.jpg) no-repeat right;}
+li.level1 a{background:url(../images/bullet-blue.jpg) no-repeat left;}
+.footer ul.links li a,.breadcrumbs ul li,ul.pDetails li{background:url(../images/bullet-blue.jpg) no-repeat left;}
+.block-title strong.account{background:url(../images/searchBg-blue.jpg) repeat-x;border:1px solid #1C498D; }
+.dashboard .page-title h1,.my-account h1,ul.accountLinks li.current,.cms-page-view h1,h2.featuredH em,.pager p.amount strong,.box-head h2,.dashboard .box-title a,.dashboard address a,.dashboard p a{color:#1C498D;}
+#banner ul.bannerNav li a.active{background:url(../images/bannerBtnActive-blue.jpg) repeat-x;border:1px solid #1C498D;}

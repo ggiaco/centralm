@@ -1,0 +1,37 @@
+<?php $home = new Mage_Page_Block_Html_Header();
+	  if ($home->getIsHomePage()): ?>   
+<?php  
+$_products = Mage::getResourceModel('catalog/product_collection')
+            ->addAttributeToSelect('name');
+   Mage::getModel('catalog/layer')->prepareProductCollection($_products);
+            $_products->getSelect()->order('entity_id desc');
+$latestHeading = Mage::getStoreConfig('dropshipper_options/general_options/latest_heading');			 
+?>
+<div class="latest">
+<h2 class="subtitle"><?php echo $latestHeading ?></h2>
+  <ul>    
+    <?php $i=0; foreach ($_products->getItems() as $_product): ?>      
+            <li>
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(150,150)->constrainOnly(TRUE)->keepAspectRatio(FALSE)->keepFrame(FALSE) ?>" width="150" height="150" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /></a>
+                <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php if(strlen($this->htmlEscape($_product->getName())) > 35){ 
+						echo substr($this->htmlEscape($_product->getName(), 'name'),0,35).'...';
+					}else{
+						echo $_product->getName();} ?> </a></h3>
+                <?php echo $this->getPriceHtml($_product, true, '-new') ?>  
+                <?php if(($_product->special_price != null)): ?>
+                	<p class="promo">Promo</p>
+				<?php endif; ?>                        
+            </li>
+        <?php $i++; 
+			 $latestAmt = Mage::getStoreConfig('dropshipper_options/general_options/latest_num');
+				if(empty($latestAmt) && $i==4){	
+					break;
+				}elseif(!empty($latestAmt) && $i==$latestAmt){
+					break;
+				}
+			 endforeach; 
+		 ?>      
+      
+</ul> 
+</div>
+<?php endif; ?>

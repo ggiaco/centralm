@@ -1,0 +1,13 @@
+<layout version="1.0">
+     <default>
+          <reference name="content">
+
+          </reference>
+      </default>
+
+      <routeurfrontend_index_index>
+           <reference name="content">
+                <block type="dconfig/myblock"  name="afficher_myblock" template="dropshipper/afficher.phtml" />
+           </reference>
+      </routeurfrontend_index_index>
+</layout>
