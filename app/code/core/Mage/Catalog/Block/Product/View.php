@@ -78,7 +78,138 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
 
         return parent::_prepareLayout();
     }
+  function formSubmit($postdata){
+  
+               	$name=$postdata['contact_name'];
+				$email=$postdata['user_email'];
+				$phone=$postdata['telephone'];
+				$body=$postdata['rfq_message'];
+				$product_name=$postdata['product_name'];
+			   $product_mail=$postdata['product_mail'];
+				
+	/*..........................................Send Product Notification Mail to Admin....................................................................*/
+		       $emailto="contacto@centralmayoreo.com";
+			    $subject="Product Quote Request";
+				$headers  = 'MIME-Version: 1.0' . "\r\n";
+				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+				$message  = "<table cellpadding='5' cellspacing='5'>";
+				$message .=  "<tr><td colspan='2'>Estimado usuario,
+				<p>".$name." ha pedido la siguiente cotización:</p>
 
+				</td></tr>";
+				$message .=  "<tr><td colspan='2'>&nbsp;</td></tr>";
+				$message .=  "<tr><td colspan='2'>==============================================</td></tr>";
+				$message .=  "<tr><td><b>Nombre de producto:</b></td><td>".$product_name."</td></tr>";
+				$message .=  "<tr><td><b>Nombre de contacto:</b></td><td>".$name."</td></tr>";
+				$message .=  "<tr><td><b>Email:</b></td><td>".$email."</td></tr>";
+				$message .=  "<tr><td><b>Tel:</b></td><td>".$phone."</td></tr>";
+				$message .=  "<tr><td><b>Mensaje:</b></td><td>".$body."</td></tr>";
+				$message .=  "<tr><td colspan='2'>&nbsp;</td></tr>";
+				$message .=  "<tr><td colspan='2'>==============================================</td></tr>";					  
+
+				$message .=  "</table>";
+				$mail = Mage::getModel('core/email');
+				$mail->setToName($name);
+				$mail->setToEmail($emailto);
+				$mail->setBody($message);
+				$mail->setSubject('Solicitar una cotización Detalles: -');
+				$mail->setFromEmail($email);
+				$mail->setFromName("cliente");
+				$mail->setType('html');// You can use Html or text as Mail format
+
+
+
+				try {
+				$mail->send();
+	
+		 // Mage::getSingleton('core/session')->addSuccess('Su petición ha sido enviada');		
+				}
+				catch (Exception $e) {
+			
+				//Mage::getSingleton('core/session')->addError('No se puede enviar.');
+
+				
+				}
+
+				
+				
+	/*..........................................Send Product Notification Mail to Customer.....................................................................*/
+		      //$to=$email;
+			    $emailto=$email;
+			    $subject="Product Request";
+				$headers  = 'MIME-Version: 1.0' . "\r\n";
+				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+				$message  = "Gracias por enviar su solicitud usted.  Estaremos Responde usted a la brevedad.<p/>
+                           Gracias Dadas:<p/>
+                           Centralmayoreo equipo";
+		          $mail = Mage::getModel('core/email');
+				 $mail->setToName($name);
+				$mail->setToEmail($emailto);
+				$mail->setBody($message);
+				$mail->setSubject('Solicitar una cotización Detalles: -');
+				$mail->setFromEmail($email);
+				$mail->setFromName("cliente");
+				$mail->setType('html');// You can use Html or text as Mail format
+             try {
+				$mail->send();
+	
+		           //Mage::getSingleton('core/session')->addSuccess('Su petición ha sido enviada');		
+				}
+				catch (Exception $e) {
+			
+				//Mage::getSingleton('core/session')->addError('No se puede enviar.');
+
+				}
+				
+		/*..........................................Send Product Notification Mail to Email Id assocaited with product,If Any................................................................
+                      if($product_mail!="") {	...*/
+					  
+			    //$to=$product_mail;
+				$emailto="ssharma2@seasiaconsulting.com";
+			    $subject="Product Request";
+				$headers  = 'MIME-Version: 1.0' . "\r\n";
+				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+				$message  = "<table cellpadding='5' cellspacing='5'>";
+				$message .=  "<tr><td colspan='2'>Estimado usuario,
+				<p>".$name." ha pedido la siguiente cotización:</p>
+
+				</td></tr>";
+				$message .=  "<tr><td colspan='2'>&nbsp;</td></tr>";
+				$message .=  "<tr><td colspan='2'>==============================================</td></tr>";
+				$message .=  "<tr><td><b>Nombre de producto:</b></td><td>".$product_name."</td></tr>";
+				$message .=  "<tr><td><b>Nombre de contacto:</b></td><td>".$name."</td></tr>";
+				$message .=  "<tr><td><b>Email:</b></td><td>".$email."</td></tr>";
+				$message .=  "<tr><td><b>Tel:</b></td><td>".$phone."</td></tr>";
+				$message .=  "<tr><td><b>Mensaje:</b></td><td>".$body."</td></tr>";
+				$message .=  "<tr><td colspan='2'>&nbsp;</td></tr>";
+				$message .=  "<tr><td colspan='2'>==============================================</td></tr>";					  
+
+				$message .=  "</table>";
+				$mail = Mage::getModel('core/email');
+				$mail->setToName($name);
+				$mail->setToEmail($emailto);
+				$mail->setBody($message);
+				$mail->setSubject('Solicitar una cotización Detalles: -');
+				$mail->setFromEmail($email);
+				$mail->setFromName("cliente");
+				$mail->setType('html');// You can use Html or text as Mail format
+
+
+
+				try {
+				$mail->send();
+	
+		  Mage::getSingleton('core/session')->addSuccess('Su petición ha sido enviada');		
+				}
+				catch (Exception $e) {
+			
+				Mage::getSingleton('core/session')->addError('No se puede enviar.');
+
+				
+				}
+ /** } */
+
+	 }
     /**
      * Retrieve current product model
      *

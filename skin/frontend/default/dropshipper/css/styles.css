@@ -28,6 +28,10 @@ caption,th,td{font-weight:normal;text-align:left;}
 			.form-language,.currency{float:right;width:210px;}
 				.select select{width:100px;border:1px solid #A8C3CF}
 				.select label{font-weight:normal;color:#333;}
+				
+				.text_wi{width:215px !important;}
+	.textarea_wi{width:215px;}
+	.submit_wi{width:50px;}
 	
 	/* Logo */
 	.header{background:#fff url(../images/headerBg.jpg) repeat-x bottom; border:1px solid #ccc; border-bottom:0;margin-top:5px;padding:0 28px;height:71px;}
@@ -652,3 +656,4 @@ ol#compare-items li .product-name a{padding:0 15px;line-height:normal;}
 /* Noscript */
 .noscript{background:#D53541;text-align:center;padding:3px 0}
 	.noscript p{color:#fff;font-size:14px;}
+	
