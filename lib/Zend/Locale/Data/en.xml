@@ -2571,8 +2571,8 @@
 	</dates>
 	<numbers>
 		<symbols>
-			<decimal>.</decimal>
-			<group>,</group>
+			<decimal>,</decimal>
+			<group>.</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
 			<nativeZeroDigit>0</nativeZeroDigit>
