@@ -5,7 +5,7 @@
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
-<?php if (!empty($_POST['mailing_list'])) 
+<?php if (isset($_POST))
 {
 //die('test');
 $this->formSubmit($_POST);
