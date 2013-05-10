@@ -44,7 +44,7 @@ $pro_email=$_product->getEmail();?>
 							  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=y.length)
 							  {
 
-							  alert("No parece ser un email válido");
+							  alert("No parece ser un email vï¿½lido");
 
 							  document.getElementById('email').focus();
 							  return false;
@@ -53,7 +53,7 @@ $pro_email=$_product->getEmail();?>
 						if(z==""){
 						
 
-						alert('Por favor escribe mensaje/cotización');
+						alert('Por favor escribe mensaje/cotizaciï¿½n');
 
 						//document.getElementById('rfq_message').focus();
 						 return false;
@@ -106,7 +106,7 @@ $pro_email=$_product->getEmail();?>
 										
 										
 				</form>	</div>	
-                        <?php echo $this->getChildHtml('addtocart') ?>
+                        <?php //echo $this->getChildHtml('addtocart') ?>
                         <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
                     <?php endif; ?>
                     <?php endif; ?>
