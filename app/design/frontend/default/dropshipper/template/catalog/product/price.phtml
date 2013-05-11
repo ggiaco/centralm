@@ -124,12 +124,12 @@
         <?php else: ?>
             <?php if ($_weeeTaxAmount && $_weeeHelper->typeOfDisplay($_product, 0)): // including ?>
                 <span class="regular-price" id="product-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
-                    <?php if($this->getRequest()->getControllerName()=='product'){echo "<span class=\"pSpan\">Price:</span> ";}  
+                    <?php if($this->getRequest()->getControllerName()=='product'){echo "<span class=\"pSpan\">Precio:</span> ";}  
 					echo $_coreHelper->currency($_price+$_weeeTaxAmount,true,true) ?>
                 </span>
             <?php elseif ($_weeeTaxAmount && $_weeeHelper->typeOfDisplay($_product, 1)): // incl. + weee ?>
                 <span class="regular-price" id="product-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
-                    <?php if($this->getRequest()->getControllerName()=='product'){echo "<span class=\"pSpan\">Price:</span>";}  
+                    <?php if($this->getRequest()->getControllerName()=='product'){echo "<span class=\"pSpan\">Precio:</span>";}  
 					echo $_coreHelper->currency($_price+$_weeeTaxAmount,true,true) ?>
                 </span>
                 <span class="weee">(
