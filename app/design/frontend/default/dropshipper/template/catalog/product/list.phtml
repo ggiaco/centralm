@@ -11,7 +11,7 @@ if($mod!='catalogsearch' && $mod!= 'tag'):
 ?>
 <?php $featuredBool = Mage::getStoreConfig('dropshipper_options/featured_options/featured'); 
 		if($featuredBool==1): ?>
-<h2 class="featuredH">Featured Products in <em><?php echo Mage::registry('current_category')->getName(); ?></em><a href="javascript:void(0);" class="hide">Hide</a></h2>
+<h2 class="featuredH">Productos destacados en <em><?php echo Mage::registry('current_category')->getName(); ?></em><a href="javascript:void(0);" class="hide">Hide</a></h2>
 <ul class="featuredCat">
 <?php $i=0; foreach ($_productCollection as $_product): ?>
 <?php $featured = Mage::getModel('catalog/product')->load($_product->getID())->getFeatured(); ?>
