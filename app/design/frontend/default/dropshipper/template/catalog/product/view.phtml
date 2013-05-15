@@ -44,7 +44,7 @@ $pro_email=$_product->getEmail();?>
 							  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=y.length)
 							  {
 
-							  alert("No parece ser un email válido");
+							  alert("No parece ser un email vï¿½lido");
 
 							  document.getElementById('email').focus();
 							  return false;
@@ -53,7 +53,7 @@ $pro_email=$_product->getEmail();?>
 						if(z==""){
 						
 
-						alert('Por favor escribe mensaje/cotización');
+						alert('Por favor escribe mensaje/cotizaciï¿½n');
 
 						//document.getElementById('rfq_message').focus();
 						 return false;
@@ -92,7 +92,8 @@ $pro_email=$_product->getEmail();?>
             <?php if (!$this->hasOptions()):?>
                 <div class="add-to-box">
                     <?php if($_product->isSaleable()): ?>
-					<div class="add-to-cart">
+					<?php echo $this->getChildHtml('info_tabs') ?>
+					<div class="add-to-cart">					
 					<form  name="quickrfq_form" id="quickrfq_form"   method="post" enctype="multipart/form-data" name="quickrfq_form" action=""  >
 							<table>
 							<input type="hidden" id="product_name" name="product_name" value="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name');?>"/>

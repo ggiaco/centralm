@@ -4,7 +4,7 @@
 ?>
 	<!-- Cart & language switcher -->
     <div class="top">
-        <div class="topCart">
+        <?php /* <div class="topCart">
             <p class="cartHead"><?php echo $this->__('Your cart:') ?>
             <?php
 			   $items = $this->helper('checkout/cart')->getSummaryCount();
@@ -19,7 +19,7 @@
 				echo $this->__(' | Total: <strong>%s</strong>', $this->helper('core')->formatPrice($total, false));
 			?>
             </p>
-        </div>
+        </div> */ ?>
         <div class="select">
         	<?php echo $this->getChildHtml('store_language') ?>       
             <?php echo $this->getChildHtml('currency') ?>

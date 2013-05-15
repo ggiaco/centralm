@@ -79,17 +79,17 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
         return parent::_prepareLayout();
     }
   function formSubmit($postdata){
-  
+    //echo "<pre>";print_r($postdata);die;
                	$name=$postdata['contact_name'];
 				$email=$postdata['user_email'];
 				$phone=$postdata['telephone'];
 				$body=$postdata['rfq_message'];
 				$product_name=$postdata['product_name'];
-			   $product_mail=$postdata['product_mail'];
+			    $product_mail=$postdata['product_mail'];
 				
 	/*..........................................Send Product Notification Mail to Admin....................................................................*/
-		       $emailto="contacto@centralmayoreo.com";
-			    $subject="Product Quote Request";
+		        $emailto="contacto@centralmayoreo.com";
+			    $subject="Se cotizó un producto en CentralMayoreo";
 				$headers  = 'MIME-Version: 1.0' . "\r\n";
 				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 				$message  = "<table cellpadding='5' cellspacing='5'>";
@@ -112,12 +112,10 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
 				$mail->setToName($name);
 				$mail->setToEmail($emailto);
 				$mail->setBody($message);
-				$mail->setSubject('Solicitar una cotización Detalles: -');
-				$mail->setFromEmail($email);
+				$mail->setSubject('Cotización en CentralMayoreo: ');
+				$mail->setFromEmail('no-reply@centralmayoreo.com');
 				$mail->setFromName("cliente");
 				$mail->setType('html');// You can use Html or text as Mail format
-
-
 
 				try {
 				$mail->send();
@@ -139,15 +137,15 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
 			    $subject="Product Request";
 				$headers  = 'MIME-Version: 1.0' . "\r\n";
 				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-				$message  = "Gracias por enviar su solicitud usted.  Estaremos Responde usted a la brevedad.<p/>
-                           Gracias Dadas:<p/>
-                           Centralmayoreo equipo";
-		          $mail = Mage::getModel('core/email');
-				 $mail->setToName($name);
+				$message  = "Gracias por preferir CentralMayoreo.  Hemos enviado su solicitud al proveedor del producto.  Esperamos reciban una pronta respuesta, y sigan encontrando nuestro portal útil.<p/>
+                           Muchas gracias:<p/>
+                           - Equipo CentralMayoreo";
+		        $mail = Mage::getModel('core/email');
+				$mail->setToName($name);
 				$mail->setToEmail($emailto);
 				$mail->setBody($message);
-				$mail->setSubject('Solicitar una cotización Detalles: -');
-				$mail->setFromEmail($email);
+				$mail->setSubject('Gracias por solicitar tu cotización:');
+				$mail->setFromEmail('contacto@centralmayoreo.com');
 				$mail->setFromName("cliente");
 				$mail->setType('html');// You can use Html or text as Mail format
              try {
@@ -165,7 +163,8 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
                       if($product_mail!="") {	...*/
 					  
 			    //$to=$product_mail;
-				$emailto="ssharma2@seasiaconsulting.com";
+				//$emailto=$product_mail;
+				$emailto="allancentralmayoreo@gmail.com";
 			    $subject="Product Request";
 				$headers  = 'MIME-Version: 1.0' . "\r\n";
 				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -189,7 +188,7 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
 				$mail->setToName($name);
 				$mail->setToEmail($emailto);
 				$mail->setBody($message);
-				$mail->setSubject('Solicitar una cotización Detalles: -');
+				$mail->setSubject('Solicitud de Cotización: -');
 				$mail->setFromEmail($email);
 				$mail->setFromName("cliente");
 				$mail->setType('html');// You can use Html or text as Mail format
