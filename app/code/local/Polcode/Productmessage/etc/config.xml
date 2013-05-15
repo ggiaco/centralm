@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<config>
+	<modules>
+		<polcode_productmessage>
+			<version>0.1.0</version>
+		</polcode_productmessage>
+	</modules>
+	<global>
+		<models>
+			<productmessage>
+				<class>Polcode_Productmessage_Model</class>
+				<resoruceModel>productmessage_Model_Mysql4</resoruceModel>
+			</productmessage>
+			<productmessage_mysql4>
+				<entities>
+					<productmessage>
+						<table>productmessage</table>
+					</productmessage>
+				</entities>
+			</productmessage_mysql4>
+		</models>
+		<heleprs>
+			<productmessage>
+				<class>Polcode_Productmessage_Helper</class>
+			</productmessage>
+		</helpers>
+		<resources>
+			<productmessage_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</productmessage_write>
+			<productmessage_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</productmessage_read>
+		</resources>
+	</global>
+</config>
