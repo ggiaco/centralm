@@ -3,6 +3,10 @@
 
 class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_Action{
 	
+	const DEVELOPER_MODE = true;
+
+	const MAIL_DEVELOPER = 'jakub.korupczynski@polcode.pl';
+
 	//const MAIL_ADMIN = 'contacto@centralmayoreo.com';
 	const MAIL_ADMIN = 'jakub.korupczynski@polcode.pl';
 
@@ -11,120 +15,103 @@ class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_
 
 	const MAIL_FROM_NAME = 'cliente';
 
-	$formData = array();
+	private $formData = array();
+
+	private $_product;
 
 	public function indexAction(){
+		$this->sendMailAction();
+	}
+
+	public function sendmailAction(){
 		//get Form data:
-		$this->formData['name'] = htmlspecialchars($_POST['contact_name']);
-		$this->formData['email'] = htmlspecialchars($_POST['user_email']);
-		$this->formData['phone'] = htmlspecialchars($_POST['telephone']);
-		$this->formData['body'] = htmlspecialchars($_POST['rfq_message']);
-		$this->formData['product_name'] = htmlspecialchars($_POST['product_name']);
-		$this->formData['product_mail'] = htmlspecialchars($_POST['product_mail']);
+		if (isset($_POST['contact_name'])){
+			$this->formData['contact_name'] = htmlspecialchars($_POST['contact_name']);
+		}
+		if (isset($_POST['user_email'])){
+			$this->formData['user_email'] = htmlspecialchars($_POST['user_email']);
+		}
+		if (isset($_POST['telephone'])){
+			$this->formData['phone'] = htmlspecialchars($_POST['telephone']);
+		}
+		if (isset($_POST['rfq_message'])){
+			$this->formData['body'] = htmlspecialchars($_POST['rfq_message']);
+		}
+		if (isset($_POST['product_id'])){
+			$this->formData['product_id'] = intval(htmlspecialchars($_POST['product_id']));
+			$this->_product = Mage::getModel('catalog/product')->load($this->formData['product_id']);
+			$this->formData['product_mail'] = $this->_product->getEmail();
+			$this->formData['product_name'] = $this->_product->getName();
+		}
+
+		if ($this->_product->getId()){
+			$this->sendMailToAdmin();
+			$this->sendMailToCustomer();
+			$this->sendMailToProduct();
+			echo 'Su petición ha sido enviada';
+		}
 	}
 
 	private function sendMailToAdmin(){
- 	   $templateId = Mage::getStoreConfig('productmessage_admin_template');
- 	   $template = Mage::getModel('core/email_template')->loadDefault($templateId);
-
- 	   $templateVariables = $this->formData;
-
- 	   $processedTemplate = $template->getProcessedTemplate($templateVariables);
-
- 	   $template->setSenderName(MAIL_FROM_NAME);
- 	   $template->setSenderEmail(MAIL_FROM);
-
- 	   $template->send(MAIL_ADMIN,'Admin',$templateVariables);
-
-
-
- 	   //$subject="Se cotizó un producto en CentralMayoreo";
-	   //$headers  = 'MIME-Version: 1.0' . "\r\n";
-	//$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	/*			
-	$mail = Mage::getModel('core/email');
-	$mail->setToName($name);
-	$mail->setToEmail($emailto);
-	$mail->setBody($message);
-	$mail->setSubject('Cotización en CentralMayoreo: ');
-	$mail->setFromEmail('no-reply@centralmayoreo.com');
-	$mail->setFromName("cliente");
-	$mail->setType('html');// You can use Html or text as Mail format
-
-				try {
-				$mail->send();
-	
-		 // Mage::getSingleton('core/session')->addSuccess('Su petición ha sido enviada');		
-				}
-				catch (Exception $e) {
-			
-				//Mage::getSingleton('core/session')->addError('No se puede enviar.');
-
-				
-				}
-				*/
-	}
-
-	private function sendMailToCustomer(){
-		$templateId = Mage::getStoreConfig('productmessage_customer_template');
+		$templateId = 'productmessage_admin_template';
 		$template = Mage::getModel('core/email_template')->loadDefault($templateId);
 
 		$templateVariables = $this->formData;
 
-		$processedTemplate = $template->getProcessedTemplate($templateVariables);
+		$template->setSenderName(self::MAIL_FROM_NAME);
+		$template->setSenderEmail(self::MAIL_NOREPLY_FROM);
+		$template->setTemplateSubject('Cotización en CentralMayoreo');
 
-		$template->setSenderName(MAIL_FROM_NAME);
-		$template->setSenderEmail(MAIL_CONTACT_FROM);
+		try {
+			if (self::DEVELOPER_MODE)
+				$template->send(self::MAIL_DEVELOPER,'Admin',$templateVariables);
+			else
+				$template->send(self::MAIL_ADMIN,'Admin',$templateVariables);
+		}
+		catch (Exception $e) {
+			Mage::log('No se puede enviar.' , null , 'mail.log');
+		}
+	}
 
-		$template->send($this->formData['email'],$this->formData['name'],$templateVariables);
+	private function sendMailToCustomer(){
+		$templateId = 'productmessage_customer_template';
+		$template = Mage::getModel('core/email_template')->loadDefault($templateId);
 
-		$emailto=$email;
-		//$mail->setSubject('Gracias por solicitar tu cotización:');
+		$templateVariables = $this->formData;
+
+		$template->setSenderName(self::MAIL_FROM_NAME);
+		$template->setSenderEmail(self::MAIL_CONTACT_FROM);
+		$template->setTemplateSubject('Gracias por solicitar tu cotización:');
+
+		try {
+			if (self::DEVELOPER_MODE)
+				$template->send(self::MAIL_DEVELOPER,'Admin',$templateVariables);
+			else
+				$template->send($this->formData['email'],$this->formData['name'],$templateVariables);
+		}
+		catch (Exception $e) {
+			Mage::log('No se puede enviar.' , null , 'mail.log');
+		}
 	}
 
 	private function sendMailToProduct(){
-		$emailto="allancentralmayoreo@gmail.com";
-			    $subject="Product Request";
-				$headers  = 'MIME-Version: 1.0' . "\r\n";
-				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-				$message  = "<table cellpadding='5' cellspacing='5'>";
-				$message .=  "<tr><td colspan='2'>Estimado usuario,
-				<p>".$name." ha pedido la siguiente cotización:</p>
+		$templateId = 'productmessage_product_template';
+		$template = Mage::getModel('core/email_template')->loadDefault($templateId);
 
-				</td></tr>";
-				$message .=  "<tr><td colspan='2'>&nbsp;</td></tr>";
-				$message .=  "<tr><td colspan='2'>==============================================</td></tr>";
-				$message .=  "<tr><td><b>Nombre de producto:</b></td><td>".$product_name."</td></tr>";
-				$message .=  "<tr><td><b>Nombre de contacto:</b></td><td>".$name."</td></tr>";
-				$message .=  "<tr><td><b>Email:</b></td><td>".$email."</td></tr>";
-				$message .=  "<tr><td><b>Tel:</b></td><td>".$phone."</td></tr>";
-				$message .=  "<tr><td><b>Mensaje:</b></td><td>".$body."</td></tr>";
-				$message .=  "<tr><td colspan='2'>&nbsp;</td></tr>";
-				$message .=  "<tr><td colspan='2'>==============================================</td></tr>";					  
+		$templateVariables = $this->formData;
 
-				$message .=  "</table>";
-				$mail = Mage::getModel('core/email');
-				$mail->setToName($name);
-				$mail->setToEmail($emailto);
-				$mail->setBody($message);
-				$mail->setSubject('Solicitud de Cotización: -');
-				$mail->setFromEmail($email);
-				$mail->setFromName("cliente");
-				$mail->setType('html');// You can use Html or text as Mail format
+		$template->setSenderName(self::MAIL_FROM_NAME);
+		$template->setSenderEmail(self::MAIL_CONTACT_FROM);
+		$template->setTemplateSubject('Solicitud de Cotización: -');
 
-
-
-				try {
-				$mail->send();
-	
-		  Mage::getSingleton('core/session')->addSuccess('Su petición ha sido enviada');		
-				}
-				catch (Exception $e) {
-			
-				Mage::getSingleton('core/session')->addError('No se puede enviar.');
-
-				
-				}
- /** } */
+		try {
+			if (self::DEVELOPER_MODE)
+				$template->send(self::MAIL_DEVELOPER,'Admin',$templateVariables);
+			else
+				$template->send($this->productMail,'',$templateVariables);
+		}
+		catch (Exception $e) {
+			Mage::log('No se puede enviar.' , null , 'mail.log');
+		}
 	}
 }

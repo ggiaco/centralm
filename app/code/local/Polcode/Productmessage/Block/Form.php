@@ -1,6 +1,6 @@
 <?php
 
-class Polcode_Productmessage_Form_Block extends Mage_Core_Block_Template{
+class Polcode_Productmessage_Block_Form extends Mage_Core_Block_Template{
 
 	public function form(){
 		return 'Form data';

@@ -19,7 +19,7 @@
 				</entities>
 			</productmessage_mysql4>
 		</models>
-		<heleprs>
+		<helpers>
 			<productmessage>
 				<class>Polcode_Productmessage_Helper</class>
 			</productmessage>
@@ -41,24 +41,35 @@
 				</connection>
 			</productmessage_read>
 		</resources>
+		<template>
+			<email>
+				<productmessage_admin_template module="Productmessage">
+					<label>Product message admin template</label>
+					<file>polcode/productmessage_admin.html</file>
+					<type>html</type>
+				</productmessage_admin_template>
+				<productmessage_customer_template module="Productmessage">
+					<label>Product message customer template</label>
+					<file>polcode/productmessage_customer.html</file>
+					<type>html</type>
+				</productmessage_customer_template>
+				<productmessage_product_template module="Productmessage">
+					<label>Product message product template</label>
+					<file>polcode/productmessage_product.html</file>
+					<type>html</type>
+				</productmessage_product_template>
+			</email>
+		</template>
 	</global>
-	<template>
-		<email>
-			<productmessage_admin_template module="Productmessage">
-				<label>Product message admin template</label>
-				<file>productmessage_admin.html</file>
-				<type>html</type>
-			</productmessage_admin_template>
-			<productmessage_customer_template module="Productmessage">
-				<label>Product message customer template</label>
-				<file>productmessage_customer.html</file>
-				<type>html</type>
-			</productmessage_customer_template>
-			<productmessage_product_template module="Productmessage">
-				<label>Product message product template</label>
-				<file>productmessage_product.html</file>
-				<type>html</type>
-			</productmessage_product_template>
-		</email>
-	</template>
+	<frontend>
+        <routers>
+            <productmessage>
+                <use>standard</use>
+                <args>
+                    <module>Polcode_Productmessage</module>
+                    <frontName>productmessage</frontName>
+                </args>
+            </productmessage>
+        </routers>   
+    </frontend>
 </config>
