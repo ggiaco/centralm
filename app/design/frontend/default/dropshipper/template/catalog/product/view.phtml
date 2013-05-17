@@ -10,65 +10,8 @@
 //die('test');
 $this->formSubmit($_POST);
 }
-$pro_email=$_product->getEmail();?>
-						<script type="text/javascript">
+?>
 
-  function validate(){
-
-						var x=document.forms["quickrfq_form"]["contact_name"].value;
-						if (x==null || x=="" || x=="Name")
-							  {
-							  
-
-							  alert("Por favor dinos tu nombre");
-
-							  document.getElementById('name').focus();
-							  return false;
-							  }
-						  
-							 var y=document.forms["quickrfq_form"]["user_email"].value;
-							  var atpos=y.indexOf("@");
-							 var dotpos=y.lastIndexOf(".");
-							 var z=document.forms["quickrfq_form"]["rfq_message"].value;
-	
-					if(y==""){
-					
-
-					alert('Por favor dinos tu email');
-
-					document.getElementById('email').focus();
-					return false;
-					}
-							 
-						if (y!=""){	
-							  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=y.length)
-							  {
-
-							  alert("No parece ser un email v�lido");
-
-							  document.getElementById('email').focus();
-							  return false;
-							  }
-						}
-						if(z==""){
-						
-
-						alert('Por favor escribe mensaje/cotizaci�n');
-
-						//document.getElementById('rfq_message').focus();
-						 return false;
-			
-						}
-						  
-																		  
-						  else{
-						document.getElementById("quickrfq_form").submit();
-						  return true;
-						  }
-
-  }
-  
-</script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
     <div class="product-essential">
@@ -93,20 +36,11 @@ $pro_email=$_product->getEmail();?>
                 <div class="add-to-box">
                     <?php if($_product->isSaleable()): ?>
 					<?php echo $this->getChildHtml('info_tabs') ?>
-					<div class="add-to-cart">					
-					<form  name="quickrfq_form" id="quickrfq_form"   method="post" enctype="multipart/form-data" name="quickrfq_form" action=""  >
-							<table>
-							<input type="hidden" id="product_name" name="product_name" value="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name');?>"/>
-								<input type="hidden" id="product_mail" name="product_mail" value="<?php echo $pro_email;?>"/>
-								<tr><td><Strong>Nombre<font size=2 color="red"><b>*</b></font>&nbsp;&nbsp;</strong></td>&nbsp;&nbsp;<td><input type="text" id="name" name="contact_name" size="40" class="text_wi"/><p></p></td></tr>
-								<tr><td><Strong>E-mail<font size=2 color="red"><b>*</b></font>&nbsp;&nbsp;</Strong></td>&nbsp;&nbsp;<td><input type="text" id="email" name="user_email" size="40" class="text_wi" /><p></p></td></tr>								
-								<tr><td><Strong>Tel&eacute;fono</Strong></td>&nbsp;&nbsp;<td><input type="text" id="telephone" name="telephone"size="40" class="text_wi" /><p></p></td></tr>
-								<tr><td><Strong>Mensaje<font size=2 color="red"><b>*</b></font>&nbsp;&nbsp;</Strong></td>&nbsp;&nbsp;<td><textarea id="rfq_message" name="rfq_message" rows="8" cols="94" class="textarea_wi"></textarea><p></p></td></tr>
-								<tr><td></td><td><input type="submit"  style="width:60px;" name="mailing_list" value="Enviar" class="submit_wi" onclick="return validate();"></td></tr>
-							</table>		 
-										
-										
-				</form>	</div>	
+                    
+					<div class="add-to-cart">
+                    <?php echo $this->getLayout()->createBlock('productmessage/form')->setTemplate('polcode/productmessage.phtml')->toHtml();
+                    ?>				
+					</div>	
                         <?php echo $this->getChildHtml('addtocart') ?>
                         <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
                     <?php endif; ?>
