@@ -1,11 +1,16 @@
 <?php
-
+/**
+ * 
+ */
 
 class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_Action{
 	
 	const DEVELOPER_MODE = true;
 
 	const MAIL_DEVELOPER = 'jakub.korupczynski@polcode.pl';
+	const MAIL_DEVELOPER2 = 'gerardo@centralmayoreo.com';
+	const MAIL_DEVELOPER3 = 'gerardogiacoman@gmail.com';
+	const MAIL_DEVELOPER4 = 'allan@centralmayoreo.com';
 
 	//const MAIL_ADMIN = 'contacto@centralmayoreo.com';
 	const MAIL_ADMIN = 'jakub.korupczynski@polcode.pl';
@@ -45,6 +50,16 @@ class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_
 		}
 
 		if ($this->_product->getId()){
+
+			$model = Mage::getModel('productmessage/productmessage');
+			$model->setName($this->formData['contact_name']);
+			$model->setEmail($this->formData['user_email']);
+			$model->setPhone($this->formData['phone']);
+			$model->setProductId($this->formData['product_id']);
+			$model->setProductName($this->_product->getName());
+			$model->setMessage($this->formData['body']);
+			$model->save();
+
 			$this->sendMailToAdmin();
 			$this->sendMailToCustomer();
 			$this->sendMailToProduct();
@@ -64,7 +79,12 @@ class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_
 
 		try {
 			if (self::DEVELOPER_MODE)
+			{
 				$template->send(self::MAIL_DEVELOPER,'Admin',$templateVariables);
+				$template->send(self::MAIL_DEVELOPER2,'Admin',$templateVariables);
+				$template->send(self::MAIL_DEVELOPER3,'Admin',$templateVariables);
+				$template->send(self::MAIL_DEVELOPER4,'Admin',$templateVariables);
+			}
 			else
 				$template->send(self::MAIL_ADMIN,'Admin',$templateVariables);
 		}
@@ -85,7 +105,12 @@ class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_
 
 		try {
 			if (self::DEVELOPER_MODE)
+			{
 				$template->send(self::MAIL_DEVELOPER,'Admin',$templateVariables);
+				$template->send(self::MAIL_DEVELOPER2,'Admin',$templateVariables);
+				$template->send(self::MAIL_DEVELOPER3,'Admin',$templateVariables);
+				$template->send(self::MAIL_DEVELOPER4,'Admin',$templateVariables);
+			}
 			else
 				$template->send($this->formData['email'],$this->formData['name'],$templateVariables);
 		}
@@ -105,8 +130,12 @@ class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_
 		$template->setTemplateSubject('Solicitud de Cotización: -');
 
 		try {
-			if (self::DEVELOPER_MODE)
+			if (self::DEVELOPER_MODE){
 				$template->send(self::MAIL_DEVELOPER,'Admin',$templateVariables);
+				$template->send(self::MAIL_DEVELOPER2,'Admin',$templateVariables);
+				$template->send(self::MAIL_DEVELOPER3,'Admin',$templateVariables);
+				$template->send(self::MAIL_DEVELOPER4,'Admin',$templateVariables);
+			}
 			else
 				$template->send($this->productMail,'',$templateVariables);
 		}

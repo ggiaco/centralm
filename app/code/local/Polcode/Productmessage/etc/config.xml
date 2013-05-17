@@ -1,20 +1,21 @@
 <?xml version="1.0" ?>
 <config>
 	<modules>
-		<polcode_productmessage>
-			<version>0.1.0</version>
-		</polcode_productmessage>
+		<Polcode_Productmessage>
+			<version>0.1.1</version>
+		</Polcode_Productmessage>
 	</modules>
 	<global>
 		<models>
 			<productmessage>
 				<class>Polcode_Productmessage_Model</class>
-				<resoruceModel>productmessage_Model_Mysql4</resoruceModel>
+				<resourceModel>productmessage_mysql4</resourceModel>
 			</productmessage>
 			<productmessage_mysql4>
+				<class>Polcode_Productmessage_Model_Mysql4</class>
 				<entities>
 					<productmessage>
-						<table>productmessage</table>
+						<table>polcode_productmessage</table>
 					</productmessage>
 				</entities>
 			</productmessage_mysql4>
@@ -30,6 +31,15 @@
 			</productmessage>
 		</blocks>
 		<resources>
+			<productmessage_setup>
+				<setup>
+					<module>Polcode_Productmessage</module>
+					<class>Polcode_Productmessage_Model_Resource_Mysql4_Setup</class>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</productmessage_setup>
 			<productmessage_write>
 				<connection>
 					<use>core_write</use>
@@ -72,4 +82,31 @@
             </productmessage>
         </routers>   
     </frontend>
+    <admin>
+    	<routers>
+    		<productmessage>
+    			<use>admin</use>
+    			<args>
+    				<module>Polcode_Producemessage</module>
+    				<frontName>productmessage</frontName>
+    			</args>
+    		</productmessage>
+    	</routers>
+    </admin>
+    <adminhtml>
+    	<menu>
+    		<productmessage module="productmessage">
+    			<title>Productmessage</title>
+    			<sort_order>200</sort_order>
+    			<children>
+    				<items module="productmessage">
+    					<title>Manage product messages</title>
+    					<sort_order>0</sort_order>
+    					<action>productmessage/adminhtml_productmessage</action>
+    				</items>
+    			</children>
+    		</productmessage>
+    	</menu>
+    </adminhtml>
+
 </config>
