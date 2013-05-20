@@ -1,0 +1,31 @@
+<table>
+	<tr>
+		<td><Strong>Nombre<font size=2 color="red"><b>*</b></font>&nbsp;&nbsp;</strong></td>
+		<td><?php echo $this->_model->getName(); ?></td>
+	</tr>
+	<tr>
+		<td><Strong>E-mail<font size=2 color="red"><b>*</b></font>&nbsp;&nbsp;</Strong></td>
+		<td><?php echo $this->_model->getEmail(); ?><p></p></td>
+	</tr>
+	<tr>
+		<td><Strong>Tel&eacute;fono</Strong></td>
+		<td><?php echo $this->_model->getPhone(); ?><p></p></td>
+	</tr>
+	<tr>
+		<td><Strong>Mensaje<font size=2 color="red"><b>*</b></font>&nbsp;&nbsp;</Strong></td>
+		<td><?php echo $this->_model->getMessage(); ?><p></p></td>
+	</tr>
+	<tr>
+		<td><Strong>Product<font size=2 color="red"><b>*</b></font>&nbsp;&nbsp;</Strong></td>
+		<td><?php echo $this->getProduct()->getName(); ?><p></p></td>
+	</tr>
+	<tr>
+		<td><Strong>Categories<font size=2 color="red"><b>*</b></font>&nbsp;&nbsp;</Strong></td>
+		<td>
+			<?php foreach ($this->getCategories() as $value): ?>
+			<?php echo $value; ?><br />
+			<?php endforeach; ?>
+			<p></p>
+		</td>
+	</tr>
+</table>	
