@@ -1,6 +1,6 @@
 <?php
 
-class Polcode_Productmessage_Block_Adminhtml_Productmessage_Show extends Mage_Adminhtml_Block_Abstract{
+class Polcode_Productmessage_Block_Adminhtml_Productmessage_Show extends Mage_Adminhtml_Block_Widget_View_Container{
 
 	public $_model;
 	private $_product;
@@ -8,15 +8,21 @@ class Polcode_Productmessage_Block_Adminhtml_Productmessage_Show extends Mage_Ad
 
 	public function __construct(){
 		parent::__construct();
+		$this->_removeButton('edit');
+		
 		$this->setTemplate('productmessage/show.phtml');
 
+		$this->_prepareModels();
+
+		$this->_headerText = Mage::helper('productmessage')->__('Message view');
+	}
+
+	public function _prepareModels(){
 		$modelId = $this->getRequest()->getParam('id');
 
 		$this->_model = Mage::getModel('productmessage/productmessage')->load($modelId);
 
 		$this->_product = Mage::getModel('catalog/product')->load($this->_model->getProductId());
-
-		$this->_getCategories();
 	}
 
 	public function getModel(){

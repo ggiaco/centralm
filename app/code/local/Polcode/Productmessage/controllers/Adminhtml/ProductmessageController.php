@@ -1,8 +1,15 @@
 <?php
-
-
+/**
+ * Product message controller
+ * 
+ *  @author  Jakub Korupczyński <jakub.korupczynski@polcode.pl>
+ */
 class Polcode_Productmessage_Adminhtml_ProductmessageController extends Mage_Adminhtml_Controller_Action{
 	
+	/**
+	 * Setting some basic staff like menu, or breadcrumps
+	 * @return Mage_Core_Layout
+	 */
 	protected function _initAction()
     {
         $this->loadLayout()
@@ -11,6 +18,10 @@ class Polcode_Productmessage_Adminhtml_ProductmessageController extends Mage_Adm
         return $this;
     }   
 
+    /**
+     * Main action for showing admin block
+     * @return void
+     */
 	public function indexAction(){
 		$this->_initAction();
 		$this->_addContent(
@@ -19,6 +30,10 @@ class Polcode_Productmessage_Adminhtml_ProductmessageController extends Mage_Adm
 		$this->renderLayout();
 	}
 
+	/**
+	 * Displaying grid with ajax
+	 * @return void
+	 */
 	public function gridAction(){
 		$this->loadLayout();
 		$this->getResponse()->setBody(
@@ -26,6 +41,10 @@ class Polcode_Productmessage_Adminhtml_ProductmessageController extends Mage_Adm
 		);
 	}
 
+	/**
+	 * Showing message details
+	 * @return void
+	 */
 	public function showAction(){
 		$this->loadLayout();
 		$this->_addContent(
