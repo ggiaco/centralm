@@ -49,6 +49,8 @@ function polcode_productmessage_validate(){
 }
 
 function polcode_productmessage_submit(){
+	document.getElementById('polcode_productMessage_submitButton').disabled = true;
+	document.getElementById('polcode_productMessage_submitButton').setAttribute("disabled", "disabled");
 	data = $j('#quickrfq_form').serialize();
 	$j.ajax({
 		type: "POST",
@@ -85,7 +87,7 @@ function polcode_productmessage_submit(){
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit"  style="width:60px;" name="mailing_list" value="Enviar" class="submit_wi" onclick="return polcode_productmessage_validate();"></td>
+				<td><input type="submit"  style="width:60px;" name="mailing_list" value="Enviar" class="submit_wi" onclick="return polcode_productmessage_validate();" id="polcode_productMessage_submitButton"></td>
 			</tr>
 		</table>		 
 	</form>

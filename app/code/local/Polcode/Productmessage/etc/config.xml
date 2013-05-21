@@ -107,6 +107,22 @@
     			</children>
     		</productmessage>
     	</menu>
+    	<acl>
+    		<resources>
+    			<all>
+    				<title>Allow everything</title>
+    			</all>
+    			<admin>
+    				<children>
+    					<productmessage>
+    						<title>Polcode Productmessage</title>
+    						<sort_order>500</sort_order>
+    					</productmessage>
+    				</children>
+    			</admin>
+    		</resources>
+    	</acl>
+    	
     </adminhtml>
 
 </config>

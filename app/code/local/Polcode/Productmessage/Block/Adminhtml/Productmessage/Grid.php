@@ -3,11 +3,11 @@
 class Polcode_Productmessage_Block_Adminhtml_Productmessage_Grid extends Mage_Adminhtml_Block_Widget_Grid{
 
 	public function __construct(){
-		parent::__construct();
+		parent::__construct();	
 		$this->setId('ProductmessageGrid');
 		$this->setDefaultSort('productmessage_id');
 		$this->setDefaultDir('ASC');
-		$this->saveParametersInSession(true);
+		//$this->saveParametersInSession(true);
 		$this->setUseAjax(true);
 	}
 
@@ -33,6 +33,12 @@ class Polcode_Productmessage_Block_Adminhtml_Productmessage_Grid extends Mage_Ad
 			'index'  => 'product_name',
 		));
 
+		$this->addColumn('phone' , array(
+			'header' => Mage::helper('productmessage')->__('Phone'),
+			'align'	 => 'left',
+			'index'  => 'phone',
+		));
+
 		$this->addColumn('name' , array(
 			'header' => Mage::helper('productmessage')->__('Name'),
 			'align'	 => 'left',
@@ -50,6 +56,32 @@ class Polcode_Productmessage_Block_Adminhtml_Productmessage_Grid extends Mage_Ad
 			'align'	 => 'left',
 			'index'  => 'create_time',
 		));
+
+		$this->addColumn('message' , array(
+			'header' => Mage::helper('productmessage')->__('Message'),
+			'align'	 => 'left',
+			'width'  => '200px',
+			'index'  => 'message',
+		));
+
+		return parent::_prepareColumns();
 	}
+
+	public function getGridUrl()
+	{
+		return $this->getUrl('*/*/grid', array('_current'=>true));
+	}
+
+	public function getRowUrl($row)
+    {
+    	return $this->getUrl('*/*/show', array('id' => $row->getId()));
+    }
+
+	public function setSaveParametersInSession($flag)
+    {
+    	Mage::log('Set Save pars' , null , 'polcode.log');
+    	return $this;
+    	return parent::setSaveParametersInSession($flag);
+    }
 
 }
