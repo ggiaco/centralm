@@ -1,7 +1,7 @@
 <?php $_product = $this->getProduct() ?>
 <div class="addtoWrapper">
 <div class="share">
-	<p><strong>Share:</strong></p>
+	<p><strong>Compartir:</strong></p>
     <ul>
        <?php if ($this->canEmailToFriend()): ?>
             <li class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></li>
