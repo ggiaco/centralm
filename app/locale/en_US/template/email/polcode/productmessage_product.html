@@ -1,15 +1,48 @@
-<table cellpadding="5" cellspacing="5">
-	<tr>
-		<td colspan="2">Estimado usuario,<p>{{var name}} ha pedido la siguiente cotización:</p>
-		</td>
-	</tr>
-	<tr><td colspan="2">&nbsp;</td></tr>
-	<tr><td colspan="2">==============================================</td></tr>
-	<tr><td><b>Nombre de producto:</b></td><td>{{var product_name}}</td></tr>
-	<tr><td><b>Nombre de contacto:</b></td><td>{{var contact_name}}</td></tr>
-	<tr><td><b>Email:</b></td><td>{{var user_email}}</td></tr>
-	<tr><td><b>Tel:</b></td><td>{{var phone}}</td></tr>
-	<tr><td><b>Mensaje:</b></td><td>{{var body}}</td></tr>
-	<tr><td colspan="2">&nbsp;</td></tr>
-	<tr><td colspan="2">==============================================</td></tr>
-</table>
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url"}
+@-->
+
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<body style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+	<table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+        <tr>
+            <td align="center" valign="top" style="padding:20px 0 20px 0">
+                <!-- [ header starts here] -->
+                <table bgcolor="FFFFFF" cellspacing="0" cellpadding="10" border="0" width="650" style="border:1px solid #E0E0E0;">
+                    <tr>
+                        <td valign="top">
+                            <a href="{{store url=""}}"><img src="{{var logo_url}}" alt="{{var logo_alt}}" style="margin-bottom:10px;" border="0"/></a></td>
+                    </tr>
+                    <tr>
+                    	<td valign="top">
+							<table cellpadding="5" cellspacing="5">
+								<tr>
+									<td colspan="2">Estimado usuario,<p>{{var name}} ha pedido la siguiente cotización:</p>
+									</td>
+								</tr>
+								<tr><td colspan="2">&nbsp;</td></tr>
+								<tr><td colspan="2">==============================================</td></tr>
+								<tr><td><b>Nombre de producto:</b></td><td>{{var product_name}}</td></tr>
+								<tr><td><b>Nombre de contacto:</b></td><td>{{var contact_name}}</td></tr>
+								<tr><td><b>Email:</b></td><td>{{var user_email}}</td></tr>
+								<tr><td><b>Tel:</b></td><td>{{var phone}}</td></tr>
+								<tr><td><b>Mensaje:</b></td><td>{{var body}}</td></tr>
+								<tr><td colspan="2">&nbsp;</td></tr>
+								<tr><td colspan="2">==============================================</td></tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+                        <td bgcolor="#EAEAEA" align="center" style="background:#EAEAEA; text-align:center;"><center><p style="font-size:12px; margin:0;">Muchas gracias,<p></p><strong>- Equipo CentralMayoreo</strong></p></center></td>
+                    </tr>
+				</table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
