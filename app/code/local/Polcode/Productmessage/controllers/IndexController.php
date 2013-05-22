@@ -5,7 +5,7 @@
 
 class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_Action{
 	
-	const DEVELOPER_MODE = true;
+	const DEVELOPER_MODE = false;
 
 	const MAIL_DEVELOPER = 'jakub.korupczynski@polcode.pl';
 	const MAIL_DEVELOPER2 = 'gerardo@centralmayoreo.com';
@@ -13,7 +13,7 @@ class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_
 	const MAIL_DEVELOPER4 = 'allan@centralmayoreo.com';
 
 	//const MAIL_ADMIN = 'contacto@centralmayoreo.com';
-	const MAIL_ADMIN = 'jakub.korupczynski@polcode.pl';
+	const MAIL_ADMIN = 'gerardo@centralmayoreo.com';
 
 	const MAIL_NOREPLY_FROM = 'no-reply@centralmayoreo.com';
 	const MAIL_CONTACT_FROM = 'contacto@centralmayoreo.com';
