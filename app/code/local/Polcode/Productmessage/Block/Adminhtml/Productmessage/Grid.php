@@ -33,11 +33,11 @@ class Polcode_Productmessage_Block_Adminhtml_Productmessage_Grid extends Mage_Ad
 			'index'  => 'product_name',
 		));
 
-		/*$this->addColumn('phone' , array(
+		$this->addColumn('phone' , array(
 			'header' => Mage::helper('productmessage')->__('Phone'),
 			'align'	 => 'left',
 			'index'  => 'phone',
-		));*/
+		));
 
 		$this->addColumn('name' , array(
 			'header' => Mage::helper('productmessage')->__('Name'),
@@ -57,12 +57,12 @@ class Polcode_Productmessage_Block_Adminhtml_Productmessage_Grid extends Mage_Ad
 			'index'  => 'create_time',
 		));
 
-		/*$this->addColumn('message' , array(
+		$this->addColumn('message' , array(
 			'header' => Mage::helper('productmessage')->__('Message'),
 			'align'	 => 'left',
 			'width'  => '200px',
 			'index'  => 'message',
-		));*/
+		));
 
 		return parent::_prepareColumns();
 	}
