@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Polcode_Productmessage>
-			<version>0.1.1</version>
+			<version>0.1.2</version>
 		</Polcode_Productmessage>
 	</modules>
 	<global>
@@ -53,17 +53,17 @@
 		</resources>
 		<template>
 			<email>
-				<productmessage_admin_template module="Productmessage">
+				<productmessage_admin_template module="productmessage">
 					<label>Product message admin template</label>
 					<file>polcode/productmessage_admin.html</file>
 					<type>html</type>
 				</productmessage_admin_template>
-				<productmessage_customer_template module="Productmessage">
+				<productmessage_customer_template module="productmessage">
 					<label>Product message customer template</label>
 					<file>polcode/productmessage_customer.html</file>
 					<type>html</type>
 				</productmessage_customer_template>
-				<productmessage_product_template module="Productmessage">
+				<productmessage_product_template module="productmessage">
 					<label>Product message product template</label>
 					<file>polcode/productmessage_product.html</file>
 					<type>html</type>

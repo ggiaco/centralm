@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Admin Block responsible for setting grid
+ * 
+ *  @author  Jakub Korupczyński <jakub.korupczynski@polcode.pl>
+ */
 class Polcode_Productmessage_Block_Adminhtml_Productmessage extends Mage_Adminhtml_Block_Widget_Grid_Container{
 
 	public function __construct(){
