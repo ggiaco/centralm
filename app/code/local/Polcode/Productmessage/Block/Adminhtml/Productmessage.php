@@ -9,7 +9,7 @@ class Polcode_Productmessage_Block_Adminhtml_Productmessage extends Mage_Adminht
 	public function __construct(){
 		$this->_controller = 'adminhtml_productmessage';
 		$this->_blockGroup = 'productmessage';
-		$this->_headerText = Mage::helper('productmessage')->__('Product message manager');
+		$this->_headerText = Mage::helper('productmessage')->__('Cotizaciones');
 		parent::__construct();
 		$this->_removeButton('add');
 	}

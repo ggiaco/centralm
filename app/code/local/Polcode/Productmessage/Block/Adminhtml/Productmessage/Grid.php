@@ -33,18 +33,18 @@ class Polcode_Productmessage_Block_Adminhtml_Productmessage_Grid extends Mage_Ad
 			'index'  => 'product_name',
 		));
 
-		$this->addColumn('phone' , array(
+		$this->addColumn('name' , array(
+			'header' => Mage::helper('productmessage')->__('Nombre'),
+			'align'	 => 'left',
+			'index'  => 'name',
+		));
+		
+		$this->addColumn('email' , array(
 			'header' => Mage::helper('productmessage')->__('Phone'),
 			'align'	 => 'left',
 			'index'  => 'phone',
 		));
-
-		$this->addColumn('name' , array(
-			'header' => Mage::helper('productmessage')->__('Name'),
-			'align'	 => 'left',
-			'index'  => 'name',
-		));
-
+		
 		$this->addColumn('email' , array(
 			'header' => Mage::helper('productmessage')->__('Email'),
 			'align'	 => 'left',
@@ -52,13 +52,13 @@ class Polcode_Productmessage_Block_Adminhtml_Productmessage_Grid extends Mage_Ad
 		));
 
 		$this->addColumn('create_time' , array(
-			'header' => Mage::helper('productmessage')->__('Created'),
+			'header' => Mage::helper('productmessage')->__('Creado'),
 			'align'	 => 'left',
 			'index'  => 'create_time',
 		));
 
 		$this->addColumn('message' , array(
-			'header' => Mage::helper('productmessage')->__('Message'),
+			'header' => Mage::helper('productmessage')->__('Mensaje'),
 			'align'	 => 'left',
 			'width'  => '200px',
 			'index'  => 'message',
