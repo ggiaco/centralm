@@ -5,20 +5,23 @@
 
 class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_Action{
 	
-	const DEVELOPER_MODE = false;
+	const DEVELOPER_MODE = FALSE;
 
-	const MAIL_DEVELOPER = 'jakub.korupczynski@polcode.pl';
+	const MAIL_DEVELOPER = 'gerardogiacoman@gmail.com';
 	const MAIL_DEVELOPER2 = 'gerardo@centralmayoreo.com';
 	const MAIL_DEVELOPER3 = 'gerardogiacoman@gmail.com';
-	const MAIL_DEVELOPER4 = 'allan@centralmayoreo.com';
+	const MAIL_DEVELOPER4 = 'lopez.allan@gmail.com';
+
 
 	//const MAIL_ADMIN = 'contacto@centralmayoreo.com';
-	const MAIL_ADMIN = 'gerardo@centralmayoreo.com';
-
-	const MAIL_NOREPLY_FROM = 'no-reply@centralmayoreo.com';
+	//const MAIL_ADMIN = 'gerardo@centralmayoreo.com';
+	//const MAIL_ADMIN = 'lopez.allan@gmail.com';
+	const MAIL_ADMIN = 'solicitudescentralmayoreo@gmail.com';
+	
+	const MAIL_NOREPLY_FROM = 'contacto@centralmayoreo.com';
 	const MAIL_CONTACT_FROM = 'contacto@centralmayoreo.com';
 
-	const MAIL_FROM_NAME = 'cliente';
+	const MAIL_FROM_NAME = 'Equipo CentralMayoreo';
 
 	private $formData = array();
 
@@ -124,7 +127,7 @@ class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_
 				$template->send(self::MAIL_DEVELOPER4,'Admin',$templateVariables);
 			}
 			else
-				$template->send($this->formData['email'],$this->formData['name'],$templateVariables);
+				$template->send($this->formData['user_email'],$this->formData['name'],$templateVariables);
 		}
 		catch (Exception $e) {
 			Mage::log('No se puede enviar.' , null , 'mail.log');
@@ -149,7 +152,7 @@ class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_
 				$template->send(self::MAIL_DEVELOPER4,'Admin',$templateVariables);
 			}
 			else
-				$template->send($this->productMail,'',$templateVariables);
+				$template->send($this->formData['product_mail'],'',$templateVariables);
 		}
 		catch (Exception $e) {
 			Mage::log('No se puede enviar.' , null , 'mail.log');

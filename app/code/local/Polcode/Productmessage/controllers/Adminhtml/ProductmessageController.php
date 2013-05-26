@@ -14,7 +14,7 @@ class Polcode_Productmessage_Adminhtml_ProductmessageController extends Mage_Adm
     {
         $this->loadLayout()
             ->_setActiveMenu('productmessage/productmessage')
-            ->_addBreadcrumb(Mage::helper('adminhtml')->__('Product message'), Mage::helper('adminhtml')->__('Product message manager'));
+            ->_addBreadcrumb(Mage::helper('adminhtml')->__('Cotización'), Mage::helper('adminhtml')->__('Cotizaciones'));
         return $this;
     }   
 
