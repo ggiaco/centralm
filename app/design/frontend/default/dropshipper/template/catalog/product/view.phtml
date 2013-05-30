@@ -42,9 +42,9 @@ $this->formSubmit($_POST);
                     <?php echo $this->getLayout()->createBlock('productmessage/form')->setTemplate('polcode/productmessage.phtml')->toHtml();
                     ?>				
 					</div>	
-                        <?php //echo $this->getChildHtml('addtocart') ?>
+                        <?php /* //echo $this->getChildHtml('addtocart') ?>
                         <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
-                    <?php endif; ?>
+                    <?php endif; */ ?>
                     <?php endif; ?>
                     <?php echo $this->getChildHtml('addto') ?>
                 </div>
