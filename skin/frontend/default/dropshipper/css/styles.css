@@ -342,7 +342,7 @@ ul.featuredCat{border:1px solid #E6E8EC;border-width:0 1px 1px;margin-bottom:20p
 			.catalog-product-view .product-view input{float:left; width:25px;border:1px solid #ccc;}
 	
 	/* Share */
-		.catalog-product-view .product-essential .add-to-links,.share{width:150px; float:left;}
+		.catalog-product-view .product-essential .add-to-links,.share{width:250px; float:left;}
 			.share{border-right:1px solid #E6E8EC;margin-right:10px;display:inline;}
 		.email-friend a{background:url(../images/email_go.png) no-repeat left;padding-left:22px; font-size:12px;}
 		.share li{padding:5px 0;}
