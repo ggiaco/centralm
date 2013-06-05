@@ -42,7 +42,7 @@ Default layout, loads most of the pages
                 <action method="addCheckoutLink"></action>
             </block>
         </reference>
-		************	Commented By Shweta kaushish to disable toplink (03-june-2013 ) ***********-->
+		************	Commented By Shweta kaushish to disable toplink (03-june-2013 )   ***********-->
         <reference name="right">
 <!--            <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml" before="-">
                 <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
