@@ -4,8 +4,14 @@
 	$cms_pages->getSelect()->where('is_active = 1');
         $last = count($cms_pages);
         $lastText = '';
-        $ctr = 0;
-        foreach($cms_pages as $_page)
+        $ctr = 0; ?>
+		
+<li><a href="<?php echo Mage::helper('cms/page')->getPageUrl( 'quienes-somos' ) ?> ">Sobre Nosotros</a></li>
+<li><a href="<?php echo Mage::helper('cms/page')->getPageUrl('comprar')?>">Compra</a></li>
+<li><a href="<?php echo Mage::helper('cms/page')->getPageUrl( 'anunciate ' ) ?> ">Vende</a></li>
+     
+	 <?php /* Code commented by shweta kaushish to display static pages (6 June 2013)
+	  foreach($cms_pages as $_page)
         {
             $data = $_page->getData();
             if($data['identifier']=='no-route' || $data['identifier']=='home')
@@ -18,5 +24,5 @@
             if($ctr++ == $last)
                 $lastText = ' last';
             echo '<li class="level1'.$lastText.' '.$str_active_class.' '.$data['title'].' " ><a href="'.Mage::getURL('').''.$data['identifier'].'"><span>'.$data['title'].'</span></a></li>'."\n";
-        }
-?> 
+        } 
+		*/?>
