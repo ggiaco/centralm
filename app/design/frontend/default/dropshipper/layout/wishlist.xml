@@ -33,11 +33,13 @@ Default layout, loads most of the pages
 -->
 
     <default>
-
+ <!--  ***********Commented By Shweta kaushish to disable toplink (03-june-2013 ) ***********
         <reference name="top.links">
-            <block type="wishlist/links" name="wishlist_link"/>
-            <action method="addLinkBlock"><blockName>wishlist_link</blockName></action>
-        </reference>
+   
+	   <block type="wishlist/links" name="wishlist_link"/>
+            <action method="addLinkBlock"><blockName>wishlist_link</blockName></action> 
+        </reference> 
+*********** Commented  Ended By Shweta kaushish to disable toplink (03-june-2013 ) *********** -->
 
         <!-- Mage_Wishlist -->
         <reference name="right">
