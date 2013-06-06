@@ -57,11 +57,13 @@ Default layout, loads most of the pages
 Load this update on every page when customer is logged in
 -->
 
-    <customer_logged_in>
+   <!--  ********Commented By Shweta kaushish to disable toplink (03-june-2013 )**********
+  <customer_logged_in>
         <reference name="top.links">
             <action method="addLink" translate="label title" module="customer"><label>Log Out</label><url helper="customer/getLogoutUrl"/><title>Log Out</title><prepare/><urlParams/><position>100</position></action>
         </reference>
-    </customer_logged_in>
+    </customer_logged_in> 
+************	Commented By Shweta kaushish to disable toplink (03-june-2013 ) ***********-->
 
 <!--
 Load this update on every page when customer is logged out
@@ -71,9 +73,12 @@ Load this update on every page when customer is logged out
         <!---<reference name="right">
             <block type="customer/form_login" name="customer_form_mini_login" before="-" template="customer/form/mini.login.phtml"/>
         </reference>-->
+		
+		 <!--  ********Commented By Shweta kaushish to disable toplink (03-june-2013 )**********
         <reference name="top.links">
             <action method="addLink" translate="label title" module="customer"><label>Log In</label><url helper="customer/getLoginUrl"/><title>Log In</title><prepare/><urlParams/><position>100</position></action>
         </reference>
+		************	Commented By Shweta kaushish to disable toplink (03-june-2013 ) ***********-->
         <remove name="wishlist_sidebar"></remove>
         <remove name="reorder"></remove>
     </customer_logged_out>
