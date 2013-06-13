@@ -30,6 +30,8 @@ foreach ($collection as $product):
              <?php if(($product->getSpecialPrice() != null)): ?>
                 	<p class="promo">Promo!</p>
 			<?php endif; ?> 
+			<a href="<?php echo $_product->getProductUrl() ?>">Cotizar Producto</a>  
+
        </div>	
 <?php if($i<=1){break;}endforeach; endif; ?>
 <?php endif;?>
