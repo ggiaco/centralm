@@ -43,7 +43,7 @@
 <?php if($_menu): ?>
     <ul class="mainNav">
         <?php //echo $_menu (Code Commented by shweta kaushish to hide the subcategories:-13 june 2013) ?>
-		<?php // ********* Code added by Shweta Kaushish to display only root categories (13 June 2013)********?>
+		<?php // ********* Code added by Shweta Kaushish to display only root categories (13-June-2013)********?>
   <?php foreach ($this->getStoreCategories() as $_category): ?>
     <li class="level1"><a href="<?php echo $this->getCategoryUrl($_category); ?>"><?php echo $this->htmlEscape($_category->getName()); ?></a></li>
 <?php endforeach ?> 
