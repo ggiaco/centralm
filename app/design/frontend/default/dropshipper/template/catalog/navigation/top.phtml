@@ -45,7 +45,7 @@
         <?php //echo $_menu (Code Commented by shweta kaushish to hide the subcategories:-13 june 2013) ?>
 		<?php // ********* Code added by Shweta Kaushish to display only root categories (13 June 2013)********?>
   <?php foreach ($this->getStoreCategories() as $_category): ?>
-    <li><a href="<?php echo $this->getCategoryUrl($_category); ?>"><?php echo $this->htmlEscape($_category->getName()); ?></a></li>
+    <li class="level1"><a href="<?php echo $this->getCategoryUrl($_category); ?>"><?php echo $this->htmlEscape($_category->getName()); ?></a></li>
 <?php endforeach ?> 
 <?php // *******Code Ended by Shweta Kaushish to display only root level categories (13 June 2013)******* ?>
 	
