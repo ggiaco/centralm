@@ -135,7 +135,7 @@ if($mod!='catalogsearch' && $mod!= 'tag'):
 						echo substr($_helper->productAttribute($_product, $_product->getName(), 'name'),0,40).'...';
 					}else{
 						echo $_product->getName();} ?>                
-                </a></h3>
+                </a> </h3>
                 <?php if($_product->getRatingSummary()): ?>
                 <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php endif; ?>

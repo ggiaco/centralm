@@ -21,7 +21,7 @@ $latestHeading = Mage::getStoreConfig('dropshipper_options/general_options/lates
 			<?php if(($_product->price)>0): ?> 
                 <?php echo $this->getPriceHtml($_product, true, '-new') ?>  
              <?php endif; ?>
-     <?php//*************** Code Added by Shweta Kaushish to hide the zero prices(24 june 2013) ******* ?>	   
+     <?php//************** Code Added by Shweta Kaushish to hide the zero prices(24 june 2013) ******* ?>	   
                 <?php if(($_product->special_price != null)): ?>
                 	<p class="promo">Promo</p>
 				<?php endif; ?>                        
