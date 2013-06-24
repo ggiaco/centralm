@@ -30,11 +30,13 @@ if($mod!='catalogsearch' && $mod!= 'tag'):
                     <?php echo $this->getReviewsSummaryHtml($_product) ?>
                     <?php endif; ?>
  			 <!-- Product Price -->
-             <?php echo $this->getPriceHtml($_product, true) ?> 
-			 
-			 
-			 
-		 <?php //******Code Added by Shweta Kaushish to add "ADD Quote" link under Features product setion (5th June 2013)******* ?> 
+<?php//********* Code Added by Shweta Kaushish to hide the zero prices(24 june 2013)*********?>
+		<?php if(($_product->price)>0): ?> 
+                <?php echo $this->getPriceHtml($_product, true) ?> 
+           <?php endif; ?>
+<?php//**************Code Added by Shweta Kaushish to hide the zero prices(24 june 2013)****** ?>	  
+         
+ <?php //******Code Added by Shweta Kaushish to add "ADD Quote" link under Features product setion (5th June 2013)******* ?> 
 		<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>">Quote Product</a>
 		<?php // ******Code Ended  by Shweta Kaushish to add "ADD Quote" link under Features product setion (5th June 2013)****** ?> 
              <div class="clear"></div>
@@ -84,7 +86,11 @@ if($mod!='catalogsearch' && $mod!= 'tag'):
                     
                     
                     <div class="listAdd">
-						 <?php echo $this->getPriceHtml($_product, true) ?>
+	<?php//********* Code Added by Shweta Kaushish to hide the zero prices(24 june 2013)***********?>
+			<?php if(($_product->price)>0): ?> 
+               <?php echo $this->getPriceHtml($_product, true) ?> 
+            <?php endif; ?>
+	<?php//********* Code Added by Shweta Kaushish to hide the zero prices(24 june 2013)***********?>
                         <?php if($_product->isSaleable()): ?>
                         <?php /* <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><?php echo $this->__('Add to Cart') ?></span></button> */ ?>
                         <?php else: ?>
@@ -133,7 +139,11 @@ if($mod!='catalogsearch' && $mod!= 'tag'):
                 <?php if($_product->getRatingSummary()): ?>
                 <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php endif; ?>
-                <?php echo $this->getPriceHtml($_product, true) ?>    
+  <?php//********* Code Added by Shweta Kaushish to hide the zero prices(24 june 2013)***********?>
+     <?php if(($_product->price)>0): ?> 
+              <?php echo $this->getPriceHtml($_product, true) ?> 
+       <?php endif; ?>
+  <?php// ********Code Added by Shweta Kaushish to hide the zero prices(24 june 2013) ************ ?> 
                 <?php if(($_product->special_price != null)): ?>
                 	<p class="promo">Promo!</p>
 				<?php endif; ?>  
