@@ -159,8 +159,9 @@ class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_
 		$templateVariables = $this->formData;
 
 		$template->setSenderName(self::MAIL_FROM_NAME);
-		$template->setSenderEmail(self::MAIL_CONTACT_FROM);
-		$template->setTemplateSubject('Solicitud de Cotización: -');
+		//$template->setSenderEmail(self::MAIL_CONTACT_FROM);
+		$template->setSenderEmail(self::$this->formData['user_email']);
+		$template->setTemplateSubject('Solicitud de Cotización:');
 
 		try {
 			if (self::DEVELOPER_MODE){
