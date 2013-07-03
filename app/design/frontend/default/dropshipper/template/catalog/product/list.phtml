@@ -30,11 +30,19 @@ if($mod!='catalogsearch' && $mod!= 'tag'):
                     <?php echo $this->getReviewsSummaryHtml($_product) ?>
                     <?php endif; ?>
  			 <!-- Product Price -->
-             <?php echo $this->getPriceHtml($_product, true) ?> 
+<?php//********* Code Added by Shweta Kaushish to hide the zero prices(24 june 2013)*********?>
+		<?php if(($_product->price)>0): ?> 
+                <?php echo $this->getPriceHtml($_product, true) ?> 
+           <?php endif; ?>
+<?php//**************Code Added by Shweta Kaushish to hide the zero prices(24 june 2013)****** ?>	  
+         
+ <?php //******Code Added by Shweta Kaushish to add "ADD Quote" link under Features product setion (5th June 2013)******* ?> 
+		<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>">Quote Product</a>
+		<?php // ******Code Ended  by Shweta Kaushish to add "ADD Quote" link under Features product setion (5th June 2013)****** ?> 
              <div class="clear"></div>
      </li>
      <?php elseif($i==0): ?>
-     <li class="noFeatured"><p>No featured Products!</p></li>
+     <li class="noFeatured"><p>No hay productos destacados!</p></li>
      <?php break; endif; ?>
 	 <?php $i++;  
 		 $featuredAmt = Mage::getStoreConfig('dropshipper_options/featured_options/featured_num');
@@ -78,19 +86,24 @@ if($mod!='catalogsearch' && $mod!= 'tag'):
                     
                     
                     <div class="listAdd">
-						 <?php echo $this->getPriceHtml($_product, true) ?>
+	<?php//********* Code Added by Shweta Kaushish to hide the zero prices(24 june 2013)***********?>
+			<?php if(($_product->price)>0): ?> 
+               <?php echo $this->getPriceHtml($_product, true) ?> 
+            <?php endif; ?>
+	<?php//********* Code Added by Shweta Kaushish to hide the zero prices(24 june 2013)***********?>
                         <?php if($_product->isSaleable()): ?>
                         <?php /* <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><?php echo $this->__('Add to Cart') ?></span></button> */ ?>
                         <?php else: ?>
                             <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                         <?php endif; ?>
                         <ul class="add-to-links">
-                            <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                            <li><a href="<?php echo $_product->getProductUrl() ?>">Cotizar Producto</a></li>
+                            <?php /* if ($this->helper('wishlist')->isAllow()) : ?>
                                 <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
                             <?php endif; ?>
                             <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
                                 <li><a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
-                            <?php endif; ?>
+                            <?php endif; */ ?>
                         </ul>        
                     </div>                     
               <div class="clear"></div>
@@ -118,18 +131,22 @@ if($mod!='catalogsearch' && $mod!= 'tag'):
             <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
                 <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(150,150)->constrainOnly(TRUE)->keepAspectRatio(FALSE)->keepFrame(FALSE); ?>" width="150" height="150" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
                 <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">
-				<?php if(strlen($_helper->productAttribute($_product, $_product->getName(), 'name')) > 35){ 
-						echo substr($_helper->productAttribute($_product, $_product->getName(), 'name'),0,35).'...';
+				<?php if(strlen($_helper->productAttribute($_product, $_product->getName(), 'name')) > 40){ 
+						echo substr($_helper->productAttribute($_product, $_product->getName(), 'name'),0,40).'...';
 					}else{
 						echo $_product->getName();} ?>                
-                </a></h3>
+                </a> </h3>
                 <?php if($_product->getRatingSummary()): ?>
                 <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php endif; ?>
-                <?php echo $this->getPriceHtml($_product, true) ?>    
+  <?php//********* Code Added by Shweta Kaushish to hide the zero prices(24 june 2013)***********?>
+     <?php if(($_product->price)>0): ?> 
+              <?php echo $this->getPriceHtml($_product, true) ?> 
+       <?php endif; ?>
+  <?php// ********Code Added by Shweta Kaushish to hide the zero prices(24 june 2013) ************ ?> 
                 <?php if(($_product->special_price != null)): ?>
                 	<p class="promo">Promo!</p>
-				<?php endif; ?>  
+			<?php endif; ?>  
                  <div class="clear"></div>         
             </li>       
       
