@@ -1,0 +1,67 @@
+
+.submenu-box {
+	background: #fff;
+	min-width:480px;
+	height:655px;
+	padding:10px;
+	float:left;
+	margin:0 0 0 -2px;
+	border:1px solid #E2E2E2;
+	border-left:none;
+	position:absolute;
+	top:0px;
+	font-size:14px;
+	display:none;
+	z-index:9999;
+}
+.mainNav li:hover div.submenu-box {
+	display:block;
+	left:204px;
+}
+.submenu-box ul {
+	width:200px;
+	float:left;
+	padding:0 20px;
+}
+.submenu-box ul li {
+	display:block;
+	padding:5px 0;
+	background:none;
+	border:none;
+	position:relative;
+}
+.submenu-box ul li.bor {
+	border-bottom:1px solid #e2e2e2;
+	padding:5px 0 20px;
+}
+.submenu-box ul li h3 {
+	color:#e7840f;
+	font-weight:normal;
+	font-size:18px;
+}
+.submenu-box ul li span.sub-txt {
+	font-size:11px;
+	display:block;
+	color:#aaa;
+}
+.submenu-box ul li a {
+	font-size:13px;
+	color:#666666;
+	border:none;
+	padding:0;
+}
+a.iphone-img {
+	position:absolute;
+	bottom:10px;
+	right:50px;
+}
+a.iphone-img img {
+	width:200px;
+}
+.submenu-box-2 {
+	min-width:260px;
+}
+
+
+
+
