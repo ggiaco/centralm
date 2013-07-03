@@ -79,6 +79,24 @@ class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_
 			$this->sendMailToCustomer();
 			$this->sendMailToProduct();
 			echo 'Su petición ha sido enviada';
+			echo '<!-- Google Code for Cotizaci&oacute;n Conversion Page -->
+				<script type="text/javascript">
+				/* <![CDATA[ */
+				var google_conversion_id = 985173252;
+				var google_conversion_language = "en";
+				var google_conversion_format = "3";
+				var google_conversion_color = "ffffff";
+				var google_conversion_label = "kNqCCMzV-wUQhJri1QM";
+				var google_conversion_value = 1;
+				/* ]]> */
+				</script>
+				<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">;
+				</script>
+				<noscript>
+				<div style="display:inline;">
+				<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/985173252/?value=1&amp;label…;
+				</div>
+				</noscript>';
 		}
 	}
 
@@ -141,8 +159,9 @@ class Polcode_Productmessage_IndexController extends Mage_Core_Controller_Front_
 		$templateVariables = $this->formData;
 
 		$template->setSenderName(self::MAIL_FROM_NAME);
-		$template->setSenderEmail(self::MAIL_CONTACT_FROM);
-		$template->setTemplateSubject('Solicitud de Cotización: -');
+		//$template->setSenderEmail(self::MAIL_CONTACT_FROM);
+		$template->setSenderEmail(self::$this->formData['user_email']);
+		$template->setTemplateSubject('Solicitud de Cotización:');
 
 		try {
 			if (self::DEVELOPER_MODE){
