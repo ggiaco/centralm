@@ -1,4 +1,3 @@
-
 .submenu-box {
 	background: #fff;
 	min-width:480px;
@@ -14,6 +13,7 @@
 	display:none;
 	z-index:9999;
 }
+
 .mainNav li:hover div.submenu-box {
 	display:block;
 	left:204px;
