@@ -13,21 +13,64 @@
  * string If specified wraps children list in div with this class
  */
 ?>
+
+
+<link href="<?php echo $this->getSkinUrl('');?>css/submenu.css" rel="stylesheet" type="text/css" />
 <?php $_menu = $this->renderCategoriesMenuHtml(0,'level-top') ?>
 <?php $mod = $this->getRequest()->getModuleName(); ?>
 		<?php if($mod!="customer"):?>
-			<div class="block">       
-		<strong><?php echo $this->__('Main Categories') ?></strong>
-			<div class="blockContent">
-				<?php if($_menu): ?>
-					<ul class="mainNav">
-					  <?php //echo $_menu ?>
-					  <?php foreach ($this->getStoreCategories() as $_category): ?>
-                            <li><a href="<?php echo $this->getCategoryUrl($_category); ?>"><?php echo $this->htmlEscape($_category->getName()); ?></a></li>
-                     <?php endforeach ?> 
-					</ul>                
-				<?php endif ?>
-			</div>
-		</div>        
-		<?php endif; ?>
+	
+    <div class="block">
+      <div class="blockContent">
+        <ul class="mainNav">
+		 <?php foreach ($this->getStoreCategories() as $_category): 
+		  $cur_cat=Mage::getModel('catalog/category')->load($_category->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_cat);
+ $immagine = $this->getCurrentCategory()->getImageUrl();
+ //echo $immagine;?>
+  <li><h3><a href="<?php echo $this->getCategoryUrl($_category); ?>" class="box"><?php echo $this->htmlEscape($_category->getName()); ?></a></font></h3>
+
+
+           
+
+<?php $_category = Mage::getModel('catalog/category')->load($_category->getId())?>
+
+      <?php $_subcategories = $_category->getChildrenCategories() ?>
+	   <?php if (count($_subcategories) > 0): ?>
+	  <div class="submenu-box" style="height:auto;width:auto;">
+  <ul>
+ <?php foreach ($_subcategories as $_sub): 
+ $cur_category=Mage::getModel('catalog/category')->load($_sub->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_category);?>
+
+   <?php echo $desc=$_sub->getDescription();
+   $desc1=$this->getCurrentCategory()->getDescription() ?>
+		 <li><h3><a href="<?php echo $this->getCategoryUrl($_category); ?>"><font  size="4" color="#E7840F" size="4";><?php echo $this->htmlEscape($_sub->getName()); ?></font></a></h3>
+		<span class="sub-txt"> 
+		<?php if (strlen($desc1) >= 60){?><font color="black"><?php echo ucfirst(substr($desc1,0,60)) . " ...." ;} 
+		else{?><font color="black"><?php echo ucfirst($desc1);}?></font>
+		<?php //echo substr($desc1,0,50); ?>..
+		</span></li>			 
+<?php endforeach ?> 
+  </ul>
+	<a href="<?php echo $this->getCategoryUrl($_category); ?>"><img src="<?php echo $immagine ?>" width="200" height="151" /></a>
+
+ </div>
+			</li>
+			<?php endif; ?>
+			 <?php endforeach ?> 
+	
+<?php endif; ?>
+		
+</ul>
+</div>
+
+</div>
+
+
+
+
+
 		

@@ -46,14 +46,15 @@ Customer account pages, rendered for all tabs in dashboard
             <action method="unsetChild"><name>reorder</name></action>
         </reference>
     </checkout_onepage_reorder>
-
+<!--Code Commented by shweta kaushish to disable My Orders from My Account Section(4th July 2013)
     <customer_account>
-        <!-- Mage_Sales -->
+        
         <reference name="customer_account_navigation">
             <action method="addLink" translate="label" module="sales"><name>orders</name><path>sales/order/history/</path><label>My Orders</label></action>
         </reference>
 
     </customer_account>
+ Code Commented by shweta kaushish to disable My Orders from My Account Section(4th July 2013)-->
 
 <!--
 Customer account home dashboard layout
