@@ -82,7 +82,13 @@
                 <?php echo $this->getChildHtml('topMenu') ?>               	
             </li>
          </ul>   
-    <?php echo $this->getChildHtml('top.links') ?>   
-    <div class="clear"></div>    
+    <?php echo $this->getChildHtml('top.links') ?>  
+<?php // ************** Code Added by Shweta Kaushish for Facebook & Twitter logo integrated in header ****************** (8 July 2013)//  ?>
+<div class="social-link">
+<a href="https://www.facebook.com/centralmayoreo"><img alt="fb" src="<?php echo $this->getSkinUrl('');?>images/fb-icon.png" alt="" /></a>
+<a href="https://twitter.com/centralmayoreo"><img alt="twitter" src="<?php echo $this->getSkinUrl('');?>images/twitter-icon.png" alt="" /></a>
+</div>	
+ <?php // ************** Facebook & Twitter logo integrated in header ****************** (8 July 2013)//  ?>
+	<div class="clear"></div>    
     </div>
 
