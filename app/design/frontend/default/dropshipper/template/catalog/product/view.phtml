@@ -11,7 +11,6 @@
 $this->formSubmit($_POST);
 
 }?>
-
 <?php //***** Code Added by Shweta Kaushish to get loggedin Customer Info**********(5 July 2013)//?>
 <?php if(Mage::getSingleton('customer/session')->isLoggedIn()) {
  $usr_name=Mage::getSingleton('customer/session')->getCustomer()->getName();
@@ -20,9 +19,9 @@ $this->formSubmit($_POST);
  $user_phone=Mage::getSingleton('customer/session')->getCustomer()->getPrimaryBillingAddress()->getTelephone(); 
  }
  } ?>
-<?php //***** Code Ended by Shweta Kaushish to get loggedin Customer Info**********(5 July 2013)//?>
- <script type="text/javascript">
-   function validate(){
+						<script type="text/javascript">
+
+  function validate(){
 
 						var x=document.forms["quickrfq_form"]["contact_name"].value;
 						if (x==null || x=="" || x=="Name")
@@ -102,7 +101,6 @@ $this->formSubmit($_POST);
                 <div class="add-to-box">
                     <?php if($_product->isSaleable()): ?>
 					<div class="add-to-cart">
-
 					<form  name="quickrfq_form" id="quickrfq_form"   method="post" enctype="multipart/form-data" name="quickrfq_form" action=""  >
 							<table>
 							<input type="hidden" id="product_name" name="product_name" value="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name');?>"/>
@@ -116,16 +114,9 @@ $this->formSubmit($_POST);
 										
 										
 				</form>	</div>	
-                        <?php echo $this->getChildHtml('addtocart') ?>
-
-						<?php echo $this->__('Pide tu cotización') ?>
-                    <?php echo $this->getLayout()->createBlock('productmessage/form')->setTemplate('polcode/productmessage.phtml')->toHtml();
-                    ?>				
-					</div>	
-                        <?php /* //echo $this->getChildHtml('addtocart') ?>
-
+                        <?php //echo $this->getChildHtml('addtocart') ?>
                         <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
-                    <?php endif; */ ?>
+                    <?php endif; ?>
                     <?php endif; ?>
                     <?php echo $this->getChildHtml('addto') ?>
                 </div>
@@ -190,22 +181,3 @@ $this->formSubmit($_POST);
         <?php echo $this->getChildHtml('reviews'); ?>         
     </div>
 </div>
-
-<!-- Google Code for P&aacute;gina producto Conversion Page -->
-<script type="text/javascript">
-/* <![CDATA[ */
-var google_conversion_id = 985173252;
-var google_conversion_language = "en";
-var google_conversion_format = "3";
-var google_conversion_color = "ffffff";
-var google_conversion_label = "iOr4CJyX_AUQhJri1QM";
-var google_conversion_value = .1;
-/* ]]> */
-</script>
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-</script>
-<noscript>
-<div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/985173252/?value=.1&amp;label=iOr4CJyX_AUQhJri1QM&amp;guid=ON&amp;script=0"/>
-</div>
-</noscript>
